@@ -71,14 +71,14 @@ const Properties = ({ isGrid, isList, setIsGrid, setIsList }) => {
           }}
         />
         <div className="flex flex-col-reverse md:flex-row">
-          <div className="w-full md:w-4/5 bg-white mb-48">
+          <div className="w-full md:w-5/5 bg-white mb-48">
             {/* PROPERTIES LIST */}
             {isLoading && <Spinner />}
             {notFoundMsg && <NotFound message={notFoundMsg} />}
             <ul
               className={`${
                 isGrid
-                  ? 'grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 p-2'
+                  ? 'grid grid-cols-1 lg:grid-cols-4 2xl:grid-cols-4 gap-4 p-2'
                   : 'flex flex-col gap-3'
               }`}
             >
@@ -100,7 +100,7 @@ const Properties = ({ isGrid, isList, setIsGrid, setIsList }) => {
             </div>
           </div>
           {/* ADVANCED SEARCH FORM */}
-          <div className="w-full md:w-1/5 bg-white border ml-0 xl:ml-2">
+          {/* <div className="w-full md:w-1/5 bg-white border ml-0 xl:ml-2">
             <button
               onClick={handleToggleForm}
               className="bg-gray-100 w-full mx-auto p-2 hover:bg-gray-200 border-b"
@@ -175,7 +175,7 @@ const Properties = ({ isGrid, isList, setIsGrid, setIsList }) => {
                 <div className="flex-1 border-b border-gray-200"></div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </React.Fragment>

@@ -8,43 +8,65 @@ import {
 import { company } from '../../../../constants/consts/company';
 import { iconsList } from '../../../Icons';
 
-const PropertyCard = ({ data, isList }) => {
-  const { id, title, image, address, commune, city, price, types } = data;
-  const { BiMap } = iconsList;
+const PropertyCard = ({ data, isList, property }) => {
+  const { id, title, image, address, commune, city, price, types, surface_m2 } = data;
+  const {
+    RiPencilRulerLine,
+    FaBed,
+    FaBath,
+    BsFillCalendarCheckFill,
+    GiHomeGarage,
+    BsCheckCircle,
+    BiMap
+  } = iconsList;
 
   return (
     <div
       className={`${
         isList
-          ? 'flex flex-col items-center bg-white border border-gray-200 hover:shadow-lg md:flex-row'
-          : 'w-full'
+          ? 'flex flex-col items-center bg-white border border-gray-200 hover:shadow-lg md:flex-row h-299'
+          : 'w-full '
       } border rounded-xl border-gray-200 hover:cursor-pointer hover:shadow-xl transition duration-300 ease-in-out`}
     >
       <img
         className={`${
           isList
-            ? 'h-[250px] w-[100%] xl:w-[400px] object-cover rounded-t-xl xl:rounded-none'
+            ? 'h-[299px] w-[100%] md:w-[400px]  xl:w-[400px] object-cover rounded-t-xl xl:rounded-none'
             : 'rounded-t-xl'
-        } h-64 xl:h-64 w-[100%] object-cover`}
+        }  object-cover h-[299px] w-full`}
         src={`https://aulen.partnersadvisers.info/properties/secure-imgs/Imagenes//${id}//1.jpg`}
         alt={`top-img-${title}`}
         width="full"
+        
       />
 
-      <div className="p-5">
-        <span className="uppercase text-primary">Cod: {id}</span>
+      <div className="p-3">
+        <div className='flex flex-row justify-between'>
+          <small className="mb-3 font-normal text-sm text-gray-400 flex items-start justify-start">
+            <BiMap className="text-xl mr-1" />
+            {truncateString(
+              `${address || 'Dirección no registrada'}, ${
+                commune || 'Comuna no registrada'
+              }`,
+              60
+            )}
+          </small>
+          <small className="uppercase text-primary">Cod: {id}</small>
+        </div>
         <h5 className="mb-2 h-18 text-md font-light xl:text-md text-gray-700">
           {truncateString(title ?? 'Titulo de propiedad no registrado', 70)}
         </h5>
-        <p className="mb-3 font-normal text-sm text-gray-400 flex items-start justify-start">
-          <BiMap className="text-xl mr-1" />
-          {truncateString(
-            `${address || 'Dirección no registrada'} ${
-              commune || 'Comuna no registrada'
-            } ${city || 'Ciudad no registrada'}`,
-            60
-          )}
-        </p>
+        <div className='border border-bottom  mb-4'></div>
+        <div className="flex flex-row ">
+          <div className="flex w-full flex-col justify-between">
+            <div className="flex items-center w-full text-gray-500">
+              <span className="text-gray-400 mr-1">
+                <RiPencilRulerLine />
+              </span>
+              Superficie útil: {surface_m2 ?? 0}m<sup>2</sup> útiles
+            </div>
+          </div>
+        </div>
 
         {data?.currency?.name === 'UF' && data?.currency?.isoCode === 'UF' && (
           <p className="flex justify-end items-center mb-3 font-normal bg-slate-50 border-l-2 border-primary-400 p-1 rounded-sm text-primary">

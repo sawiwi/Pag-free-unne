@@ -1,7 +1,7 @@
 import Home from '../pages/Home';
 import About from '../pages/About';
 import Properties from '../pages/Properties/Properties';
-// import Property from '../pages/Properties/Property';
+import Property from '../pages/Properties/Property';
 // import PropertiesInMap from '../pages/PropertiesInMap';
 
 export const navigationRoutes = [
@@ -23,12 +23,12 @@ export const navigationRoutes = [
     path: '/propiedades',
     element: <Properties />,
   },
-  // {
-  //   id: 4,
-  //   name: 'Propiedad',
-  //   path: '/propiedades/:id',
-  //   element: <Property />,
-  // },
+  {
+    id: 4,
+    name: 'Propiedad detalle',
+    path: '/propiedades/:id',
+    element: <Property />,
+  },
   // {
   //   id: 5,
   //   name: 'Propiedades en mapa',

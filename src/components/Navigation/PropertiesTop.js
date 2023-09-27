@@ -21,10 +21,8 @@ const PropertiesTop = ({
     switch (pathname) {
       case '/propiedades':
         return 'Propiedades';
-      case '/soy-inversionista/unidades-nuevas':
-        return 'Unidades nuevas';
       default:
-        return 'Unne';
+        return 'Propiedades';
     }
   };
 
@@ -33,14 +31,27 @@ const PropertiesTop = ({
   }, [pathname]);
 
   return (
-    <div className=" py-5 px-3 border mb-4 bg-white w-full">
-      <div className="flex justify-between items-center my-4">
-        <div className="flex flex-col justify-start">
-          <h1 className="text-2xl font-ligth text-gray-800">
+    <div className=" py-5 px-3  mb-4 bg-white w-full">
+      <div className="flex justify-center items-center my-4">
+        <div className="flex flex-col">
+          <h1 className="text-4xl font-ligth text-gray-800 text-center">
             {getTitle(pathname)}
           </h1>
         </div>
-        <div>
+      </div>
+      <div className="flex flex-wrap flex-row justify-between xl:justify-between items-center">
+        {/* <small className="text-sm p-1 rounded">
+          Encontradas por página: {properties?.length ?? 0}
+        </small> */}
+        <div className='flex flex-row justify-start'>   
+          <p className="text-md p-1 rounded">
+            Total Propiedades: {totalItems ?? 0}
+          </p>
+        </div>
+        {/* <small className="text-sm p-1 rounded">
+          Por página: {paginationTopLimit.limit ?? 0}
+        </small> */}
+        <div className='flex flex-row justify-end'>
           <ul className="flex">
             <li className="w-[200px] sm:flex hidden mr-5 text-gray-600">
               <select
@@ -78,26 +89,14 @@ const PropertiesTop = ({
             >
               <FaThList />
             </li>
-            <li className="mx-1 p-2.5 bg-gray-100 cursor-pointer text-gray-500">
+            {/* <li className="mx-1 p-2.5 bg-gray-100 cursor-pointer text-gray-500">
               <Link to="/propiedades/propiedades-en-mapa">
                 <FaMapMarkerAlt />
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
-      </div>
-      <div className="flex flex-wrap flex-row justify-center xl:justify-start items-center bg-gray-50 text-gray-500">
-        <small className="text-sm p-1 rounded">
-          Encontradas por página: {properties?.length ?? 0}
-        </small>
-        <span className="text-gray-300 mx-3">|</span>
-        <small className="text-sm p-1 rounded">
-          Total Propiedades: {totalItems ?? 0}
-        </small>
-        <span className="text-gray-300 mx-3">|</span>
-        <small className="text-sm p-1 rounded">
-          Por página: {paginationTopLimit.limit ?? 0}
-        </small>
+        
       </div>
     </div>
   );

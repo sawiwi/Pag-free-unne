@@ -48,7 +48,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
   return (
     <React.Fragment>
-      <div className="absolute bottom-0 flex justify-center items-center w-[100%] xl:w-[80%] bg-gray-50 p-3">
+      <div className="absolute bottom-0 flex justify-center items-center w-[100%]  bg-gray-50 p-3">
         <button
           onClick={handlePreviousPage}
           disabled={currentPage === 1}
@@ -56,7 +56,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
             currentPage === 1 ? 'bg-gray-100 text-gray-400' : 'bg-gray-200'
           } p-3 border rounded-l-lg`}
         >
-          Volver
+          Anterior
         </button>
 
         {getPageNumbers().map((pageNumber, index) => (

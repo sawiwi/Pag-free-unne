@@ -59,173 +59,173 @@ export const mainCarouselLegalServicesData = [
 export const webServicesTabs = ['venta', 'arriendo ', 'arriendo_temporal'];
 
 /* Imagenes de banco - Data */
-export const BankData = [
-  {
-    id: 1,
-    title: 'Banco Estado',
-    img: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1689962901/Projects/unne/img/alianzas/BancoEstado.webp',
-    href: '',
-  },
-  {
-    id: 2,
-    title: 'Accion Panal',
-    img: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1689962901/Projects/unne/img/alianzas/accionPanal.webp',
-    href: '',
-  },
-  {
-    id: 3,
-    title: 'Info Check',
-    img: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1689963093/Projects/unne/img/alianzas/InfoCheck.webp',
-    href: 'https://www.bci.cl/personas',
-  },
-  {
-    id: 4,
-    title: 'Goohaus',
-    img: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1689963276/Projects/unne/img/alianzas/Goohaus.webp',
-    href: '',
-  },
-  {
-    id: 5,
-    title: 'Banco TrueCapital',
-    img: 'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1680029041/unne-media/bancos/TrueCapital_yuwaip.png',
-    href: 'https://www.truecapital.cl/',
-  },
-  {
-    id: 6,
-    title: 'Asset Plan',
-    img: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1691791822/Projects/unne/img/alianzas/AssetPlann.png',
-    href: 'https://www.assetplan.cl/',
-  },
-];
+// export const BankData = [
+//   {
+//     id: 1,
+//     title: 'Banco Estado',
+//     img: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1689962901/Projects/unne/img/alianzas/BancoEstado.webp',
+//     href: '',
+//   },
+//   {
+//     id: 2,
+//     title: 'Accion Panal',
+//     img: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1689962901/Projects/unne/img/alianzas/accionPanal.webp',
+//     href: '',
+//   },
+//   {
+//     id: 3,
+//     title: 'Info Check',
+//     img: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1689963093/Projects/unne/img/alianzas/InfoCheck.webp',
+//     href: 'https://www.bci.cl/personas',
+//   },
+//   {
+//     id: 4,
+//     title: 'Goohaus',
+//     img: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1689963276/Projects/unne/img/alianzas/Goohaus.webp',
+//     href: '',
+//   },
+//   {
+//     id: 5,
+//     title: 'Banco TrueCapital',
+//     img: 'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1680029041/unne-media/bancos/TrueCapital_yuwaip.png',
+//     href: 'https://www.truecapital.cl/',
+//   },
+//   {
+//     id: 6,
+//     title: 'Asset Plan',
+//     img: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1691791822/Projects/unne/img/alianzas/AssetPlann.png',
+//     href: 'https://www.assetplan.cl/',
+//   },
+// ];
 /** porque unne - Arrendar Data */
-export const whyUnneLeaseData = [
-  {
-    id: 1,
-    title: '¿Por qué Unne?',
-    benefits: [
-      {
-        id: 1,
-        name: 'Te acompañamos en toda la gestión.',
-        icon: 'before:content-["1"]',
-      },
-      {
-        id: 2,
-        name: 'Tu propiedad en manos del arrendatario correcto.',
-        icon: 'before:content-["2"]',
-      },
-      {
-        id: 3,
-        name: 'Publicamos en los portales mas reconocidos de Chile.',
-        icon: 'before:content-["3"]',
-      },
-      {
-        id: 4,
-        name: 'Asesoria Legal.',
-        icon: 'before:content-["4"]',
-      },
-      {
-        id: 5,
-        name: 'Agenda tu sesión de fotos y video profesional de manera gratuita.',
-        icon: 'before:content-["5"]',
-      },
-    ],
-  },
-];
+// export const whyUnneLeaseData = [
+//   {
+//     id: 1,
+//     title: '¿Por qué Unne?',
+//     benefits: [
+//       {
+//         id: 1,
+//         name: 'Te acompañamos en toda la gestión.',
+//         icon: 'before:content-["1"]',
+//       },
+//       {
+//         id: 2,
+//         name: 'Tu propiedad en manos del arrendatario correcto.',
+//         icon: 'before:content-["2"]',
+//       },
+//       {
+//         id: 3,
+//         name: 'Publicamos en los portales mas reconocidos de Chile.',
+//         icon: 'before:content-["3"]',
+//       },
+//       {
+//         id: 4,
+//         name: 'Asesoria Legal.',
+//         icon: 'before:content-["4"]',
+//       },
+//       {
+//         id: 5,
+//         name: 'Agenda tu sesión de fotos y video profesional de manera gratuita.',
+//         icon: 'before:content-["5"]',
+//       },
+//     ],
+//   },
+// ];
 
-export const whyUnneLeaseNewData = [
-  {
-    id: 1,
-    title: 'Equipo de Profesionales',
-    text: 'Contamos con más de 300 corredores de propiedades especializados en todo el territorio nacional, con la asesoría de abogados inmobiliarios que te ayudaran desde la elaboración de contrato hasta recibir el pago del arriendo.',
-    icon:'customEquipo'
-  },
-  {
-    id: 2,
-    title: 'Vende en tiempo récord',
-    text: 'Utilizamos un sistema inteligente que permite cruzar bases de datos de búsquedas y consultas para optimizar los tiempos de respuesta y conseguir tu arrendatario ideal en poco tiempo.',
-    icon:'customMayor'
-  },
-  {
-    id: 3,
-    title: 'Mayor Alcance',
-    text: 'Sincronizamos nuestras publicaciones en los 39 portales inmobiliarios más importantes del país, lo que te brindara una mayor visualización de tu propiedad.',
-    icon:'customVende'
-  },
-];
+// export const whyUnneLeaseNewData = [
+//   {
+//     id: 1,
+//     title: 'Equipo de Profesionales',
+//     text: 'Contamos con más de 300 corredores de propiedades especializados en todo el territorio nacional, con la asesoría de abogados inmobiliarios que te ayudaran desde la elaboración de contrato hasta recibir el pago del arriendo.',
+//     icon:'customEquipo'
+//   },
+//   {
+//     id: 2,
+//     title: 'Vende en tiempo récord',
+//     text: 'Utilizamos un sistema inteligente que permite cruzar bases de datos de búsquedas y consultas para optimizar los tiempos de respuesta y conseguir tu arrendatario ideal en poco tiempo.',
+//     icon:'customMayor'
+//   },
+//   {
+//     id: 3,
+//     title: 'Mayor Alcance',
+//     text: 'Sincronizamos nuestras publicaciones en los 39 portales inmobiliarios más importantes del país, lo que te brindara una mayor visualización de tu propiedad.',
+//     icon:'customVende'
+//   },
+// ];
 
 /* Informacion del circulo en quiero-arrendar.js */
-export const CircleArrendarData = [
-  {
-    id: 1,
-    text: 'Llena el formulario',
-    position: 'lg:top-0 lg:right-[19rem] md:max-lg:left-2/4 md:-top-8',
-  },
-  {
-    id: 2,
-    text: 'Te asignamos a tu ejecutivo',
-    position: 'lg:right-full md:max-lg:top-10 md:max-lg:left-[24rem]',
-  },
-  {
-    id: 3,
-    text: 'Evaluación Comercial',
-    position:
-      'lg:right-[19rem] lg:bottom-0 md:max-lg:top-[9rem] md:max-lg:left-[28rem] ',
-  },
-  {
-    id: 4,
-    text: 'Definición de estrategias',
-    position:
-      'lg:bottom-0 lg:left-[19rem] md:max-lg:left-2/4 md:max-lg:-bottom-8 ',
-  },
-  {
-    id: 5,
-    text: 'Gestión Comercial',
-    position: 'lg:left-full md:max-lg:bottom-10 md:max-lg:left-[24rem]',
-  },
-  {
-    id: 6,
-    text: '¡Arrendamos y recibe tu arriendo!',
-    position:
-      'lg:top-0 lg:left-[19rem] md:max-lg:bottom-[9rem] md:max-lg:left-[28rem] ',
-  },
-];
+// export const CircleArrendarData = [
+//   {
+//     id: 1,
+//     text: 'Llena el formulario',
+//     position: 'lg:top-0 lg:right-[19rem] md:max-lg:left-2/4 md:-top-8',
+//   },
+//   {
+//     id: 2,
+//     text: 'Te asignamos a tu ejecutivo',
+//     position: 'lg:right-full md:max-lg:top-10 md:max-lg:left-[24rem]',
+//   },
+//   {
+//     id: 3,
+//     text: 'Evaluación Comercial',
+//     position:
+//       'lg:right-[19rem] lg:bottom-0 md:max-lg:top-[9rem] md:max-lg:left-[28rem] ',
+//   },
+//   {
+//     id: 4,
+//     text: 'Definición de estrategias',
+//     position:
+//       'lg:bottom-0 lg:left-[19rem] md:max-lg:left-2/4 md:max-lg:-bottom-8 ',
+//   },
+//   {
+//     id: 5,
+//     text: 'Gestión Comercial',
+//     position: 'lg:left-full md:max-lg:bottom-10 md:max-lg:left-[24rem]',
+//   },
+//   {
+//     id: 6,
+//     text: '¡Arrendamos y recibe tu arriendo!',
+//     position:
+//       'lg:top-0 lg:left-[19rem] md:max-lg:bottom-[9rem] md:max-lg:left-[28rem] ',
+//   },
+// ];
 
 /* Informacion del circulo en quiero-vender.js */
-export const CircleVenderData = [
-  {
-    id: 1,
-    text: 'Llena el formulario',
-    position: 'lg:top-0 lg:right-[19rem] md:max-lg:left-2/4 md:-top-8',
-  },
-  {
-    id: 2,
-    text: 'Te asignamos a tu Ejecutivo',
-    position: 'lg:right-full md:max-lg:top-10 md:max-lg:left-[24rem]',
-  },
-  {
-    id: 3,
-    text: 'Evaluación Comercial',
-    position:
-      'lg:right-[19rem] lg:bottom-0 md:max-lg:top-[9rem] md:max-lg:left-[28rem]',
-  },
-  {
-    id: 4,
-    text: 'Definición de estrategias',
-    position:
-      'lg:bottom-0 lg:left-[19rem] md:max-lg:left-2/4 md:max-lg:-bottom-8',
-  },
-  {
-    id: 5,
-    text: 'Gestión Comercial y legal',
-    position: 'lg:left-full md:max-lg:bottom-10 md:max-lg:left-[24rem]',
-  },
-  {
-    id: 6,
-    text: 'Vende y recibe tu pago!',
-    position:
-      'lg:top-0 lg:left-[19rem] md:max-lg:bottom-[9rem] md:max-lg:left-[28rem]',
-  },
-];
+// export const CircleVenderData = [
+//   {
+//     id: 1,
+//     text: 'Llena el formulario',
+//     position: 'lg:top-0 lg:right-[19rem] md:max-lg:left-2/4 md:-top-8',
+//   },
+//   {
+//     id: 2,
+//     text: 'Te asignamos a tu Ejecutivo',
+//     position: 'lg:right-full md:max-lg:top-10 md:max-lg:left-[24rem]',
+//   },
+//   {
+//     id: 3,
+//     text: 'Evaluación Comercial',
+//     position:
+//       'lg:right-[19rem] lg:bottom-0 md:max-lg:top-[9rem] md:max-lg:left-[28rem]',
+//   },
+//   {
+//     id: 4,
+//     text: 'Definición de estrategias',
+//     position:
+//       'lg:bottom-0 lg:left-[19rem] md:max-lg:left-2/4 md:max-lg:-bottom-8',
+//   },
+//   {
+//     id: 5,
+//     text: 'Gestión Comercial y legal',
+//     position: 'lg:left-full md:max-lg:bottom-10 md:max-lg:left-[24rem]',
+//   },
+//   {
+//     id: 6,
+//     text: 'Vende y recibe tu pago!',
+//     position:
+//       'lg:top-0 lg:left-[19rem] md:max-lg:bottom-[9rem] md:max-lg:left-[28rem]',
+//   },
+// ];
 
 /** Main Carousel - Vender Data */
 export const mainCarouselSellData = [
@@ -244,39 +244,39 @@ export const mainCarouselSellData = [
 ];
 
 /** porque unne - vender Data */
-export const whyUnneSellData = [
-  {
-    id: 1,
-    title: '¿Por qué Unne?',
-    benefits: [
-      {
-        id: 1,
-        name: 'Te asesoramos de principio a fin.',
-        icon: 'before:content-["1"]',
-      },
-      {
-        id: 1,
-        name: 'Tenemos la base  de clientes compradores más grande del país.',
-        icon: 'before:content-["2"]',
-      },
-      {
-        id: 1,
-        name: 'Publicamos en 43 portales inmobiliarios Servicios legales.',
-        icon: 'before:content-["3"]',
-      },
-      {
-        id: 1,
-        name: 'Servicios legales.',
-        icon: 'before:content-["4"]',
-      },
-      {
-        id: 1,
-        name: 'Agenda tu sesión de fotos y video profesional de manera gratuita.',
-        icon: 'before:content-["5"]',
-      },
-    ],
-  },
-];
+// export const whyUnneSellData = [
+//   {
+//     id: 1,
+//     title: '¿Por qué Unne?',
+//     benefits: [
+//       {
+//         id: 1,
+//         name: 'Te asesoramos de principio a fin.',
+//         icon: 'before:content-["1"]',
+//       },
+//       {
+//         id: 1,
+//         name: 'Tenemos la base  de clientes compradores más grande del país.',
+//         icon: 'before:content-["2"]',
+//       },
+//       {
+//         id: 1,
+//         name: 'Publicamos en 43 portales inmobiliarios Servicios legales.',
+//         icon: 'before:content-["3"]',
+//       },
+//       {
+//         id: 1,
+//         name: 'Servicios legales.',
+//         icon: 'before:content-["4"]',
+//       },
+//       {
+//         id: 1,
+//         name: 'Agenda tu sesión de fotos y video profesional de manera gratuita.',
+//         icon: 'before:content-["5"]',
+//       },
+//     ],
+//   },
+// ];
 /** porque unne - vender Data */
 export const whyUnneSellNewData = [
   {

@@ -8,7 +8,11 @@ export const navigationData = [
     id: 2,
     name: 'Propiedades',
     href: '/Propiedades',
-  },
+  },    {
+    id: 5,
+    name: 'Propiedades',
+    href: '/Propiedades/:id',
+  }, 
   {
     id: 3,
     name: 'Sobre mi',
