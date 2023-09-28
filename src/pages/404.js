@@ -6,7 +6,7 @@ const NotFound = () => {
     return(
         <>
         <Head>
-            <title>Unne | 404</title>
+            <title>Página Gratis de Unne | 404</title>
         </Head>
             
         <Layout>

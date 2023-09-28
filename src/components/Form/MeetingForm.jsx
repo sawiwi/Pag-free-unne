@@ -10,16 +10,16 @@ import { parseRealtorDate } from '../../utils';
 import { realtorData } from '../../constants/consts/realtor';
 import { companyForm } from '../../constants/consts/company';
 
-const MeetingForm = ({ title, subtitle, DataEmail, message }) => {
+const MeetingForm = ({ title, subtitle, DataEmail }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     termsAndConditions: false,
     companyId: companyForm.id,
-    action: message,
-    message: message,
-    subject: message,
+    action: "Contacto",
+    message: "",
+    subject: "",
     lastName: '',
     meetingDate: new Date(),
   });
@@ -101,9 +101,9 @@ const MeetingForm = ({ title, subtitle, DataEmail, message }) => {
       email: '',
       termsAndConditions: false,
       companyId: companyForm.id,
-      action: 'Servicios: inversionista Unidades nuevas',
-      message: 'Servicios: inversionista Unidades nuevas',
-      subject: 'Servicios: inversionista Unidades nuevas',
+      action: 'Contacto Página web',
+      message: '',
+      subject: '',
       lastName: '',
       meetingDate: new Date(),
     });
@@ -229,22 +229,17 @@ const MeetingForm = ({ title, subtitle, DataEmail, message }) => {
   };
 
   return (
-    <div className="bg-gray-200 rounded-[25px] p-4 my-10 xl:py-5 xl:px-10 xl:m-0 w-full ">
+    <div className="rounded-[25px] p-4 my-10 xl:py-5 xl:px-10 xl:m-0 w-full ">
       {/* xl:w-3/5 */}
       <div className="text-center">
         <h2 className="text-4xl font-bold py-2 text-gray-800">{title}</h2>
-        {subtitle && (
-          <p className="text-xl font-semibold text-gray-600">{subtitle}</p>
-        )}
+        <span className='text-md font-normal text-gray-500'>{subtitle}</span>
       </div>
       <form name="FormsData" onSubmit={onFormSubmit} className="py-6 px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-20 gap-y-3 py-5 max-sm:divide-y-2 max-sm:divide-[#d8d8da]">
+        <div className="grid grid-cols-1 gap-x-20 gap-y-3 py-5 mx-96 max-sm:divide-y-2 max-sm:divide-[#d8d8da]">
           <div className="max-sm:py-2">
-            <label htmlFor="name" className="block text-base font-semibold">
-              Nombre:
-            </label>
             <input
-              className="block w-full rounded-xl bg-slate-50 py-2 px-2 outline-none"
+              className="block w-full rounded-full bg-slate-50 py-2 px-2 outline-2 border-2 border-[#E85512D4]"
               type="text"
               placeholder="Nombre"
               name="user_name"
@@ -255,11 +250,8 @@ const MeetingForm = ({ title, subtitle, DataEmail, message }) => {
           </div>
 
           <div className="max-sm:py-2">
-            <label htmlFor="lastname" className="block text-base font-semibold">
-              Apellido:
-            </label>
             <input
-              className="block w-full rounded-xl bg-slate-50 py-2 px-2 outline-none"
+              className="block w-full rounded-full bg-slate-50 py-2 px-2 outline-2 border-2 border-[#E85512D4]"
               type="text"
               placeholder="Apellido"
               name="user_lastname"
@@ -270,11 +262,8 @@ const MeetingForm = ({ title, subtitle, DataEmail, message }) => {
           </div>
 
           <div className="max-sm:py-2">
-            <label htmlFor="email" className="block text-base font-semibold">
-              Email:
-            </label>
             <input
-              className="block w-full rounded-xl bg-slate-50 py-2 px-2 outline-none"
+              className="block w-full rounded-full bg-slate-50 py-2 px-2 outline-2 border-2 border-[#E85512D4]"
               type="email"
               placeholder="email"
               name="user_email"
@@ -285,11 +274,8 @@ const MeetingForm = ({ title, subtitle, DataEmail, message }) => {
           </div>
 
           <div className="max-sm:py-2">
-            <label htmlFor="phone" className="block text-base font-semibold">
-              Teléfono:
-            </label>
             <input
-              className="block w-full rounded-xl bg-slate-50 py-2 px-2 outline-none"
+              className="block w-full rounded-full bg-slate-50 py-2 px-2 outline-2 border-2 border-[#E85512D4]"
               type="text"
               placeholder="Ej: 9 9999 9999"
               name="user_phone"
@@ -301,11 +287,8 @@ const MeetingForm = ({ title, subtitle, DataEmail, message }) => {
             />
           </div>
           <div className="max-sm:py-2">
-            <label htmlFor="date" className="block text-base font-semibold">
-              Fecha:
-            </label>
             <input
-              className="block w-full rounded-xl py-2 px-2 bg-slate-50 outline-none"
+              className="block w-full rounded-full bg-slate-50 py-2 px-2 outline-2 border-2 border-[#E85512D4]"
               type="date"
               name="date"
               id="date"
@@ -322,11 +305,8 @@ const MeetingForm = ({ title, subtitle, DataEmail, message }) => {
           </div>
 
           <div className="max-sm:py-2">
-            <label htmlFor="tel" className="block text-base font-semibold">
-              Hora:
-            </label>
             <input
-              className="block w-full rounded-xl bg-slate-50 py-2 px-2 outline-none"
+              className="block w-full rounded-full bg-slate-50 py-2 px-2 outline-2 border-2 border-[#E85512D4]"
               type="time"
               name="time"
               id="time"
@@ -336,7 +316,7 @@ const MeetingForm = ({ title, subtitle, DataEmail, message }) => {
           </div>
         </div>
 
-        <div className="w-5/6 mx-auto my-14 mb-10 flex items-center justify-center">
+        {/* <div className="w-5/6 mx-auto my-14 mb-10 flex items-center justify-center">
           <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
             <input
               className="relative float-left mt-[0.15rem] mr-[6px] -ml-[1.5rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:ml-[0.25rem] checked:after:-mt-px checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-t-0 checked:after:border-l-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#ca6f3b] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:ml-[0.25rem] checked:focus:after:-mt-px checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-t-0 checked:focus:after:border-l-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary"
@@ -354,7 +334,7 @@ const MeetingForm = ({ title, subtitle, DataEmail, message }) => {
               política de privacidad
             </label>
           </div>
-        </div>
+        </div> */}
 
         {errorMsg?.serverEmailError && (
           <Alert type="danger" message={errorMsg?.serverEmailError} />
@@ -377,7 +357,7 @@ const MeetingForm = ({ title, subtitle, DataEmail, message }) => {
           <Button
             value="Send"
             type="submit"
-            className="bg-primary rounded-full text-white px-4 py-1 hover:bg-primary-opacity"
+            className="bg-primary rounded-full text-white px-6 py-2 hover:bg-primary-opacity"
           >
             <div className="text-lg font-medium capitalize mx-auto">
               <span className="max-h-10">
