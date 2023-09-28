@@ -1,11 +1,11 @@
 export const company = {
   statusId: 1,
-  companyId: 10087,
-  codigoUsuarioMaestro: null,
+  companyId: 20,
+  codigoUsuarioMaestro: 0,
 };
 
 export const companyForm = {
-  id: 10087,
+  id: 20,
 };
 
 export const paginationTopLimit = {

@@ -19,13 +19,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <ContextProvider>
-      <ClientsProvider>
+      {/* <ClientsProvider> */}
         <SelectsProvider>
           <PropertiesProvider>
             <App />
           </PropertiesProvider>
         </SelectsProvider>
-      </ClientsProvider>
+      {/* </ClientsProvider> */}
     </ContextProvider>
   </BrowserRouter>
 );

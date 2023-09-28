@@ -4,7 +4,7 @@ import { PropertiesContext } from '../../../../context/properties/PropertiesCont
 import PropertiesTop from '../../../Navigation/PropertiesTop';
 import PropertyCard from './PropertyCard';
 import Pagination from '../../../Pagination';
-import AdvancedSearch from '../../../Form/AdvancedSearch';
+// import AdvancedSearch from '../../../Form/AdvancedSearch';
 import Spinner from '../../../Spinner/Spinner';
 import NotFound from '../../../Message/NotFound';
 import { iconsList } from '../../../Icons';
@@ -78,7 +78,7 @@ const Properties = ({ isGrid, isList, setIsGrid, setIsList }) => {
             <ul
               className={`${
                 isGrid
-                  ? 'grid grid-cols-1 lg:grid-cols-4 2xl:grid-cols-4 gap-4 p-2'
+                  ? 'grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3 gap-4 p-2'
                   : 'flex flex-col gap-3'
               }`}
             >

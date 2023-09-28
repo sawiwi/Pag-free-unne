@@ -31,6 +31,7 @@ import {
   FaThList,
   FaMapMarked,
   FaMapMarkerAlt,
+  FaSearchPlus
 } from 'react-icons/fa';
 import { BsFillTelephoneFill, BsSearch } from 'react-icons/bs';
 import { FiMail } from 'react-icons/fi';
@@ -109,4 +110,5 @@ export const iconsList = {
   MdOutlineFilterList,
   MdOutlineFilterListOff,
   BiMap,
+  FaSearchPlus
 };

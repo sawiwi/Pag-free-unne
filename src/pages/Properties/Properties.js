@@ -10,7 +10,12 @@ const Properties = () => {
   useEffect(() => {
     if (location.pathname === '/propiedades') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }  else if (location.pathname === '/sobre-mi') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    // else if (location.pathname === '/contacto') {
+    //   window.scrollTo({ top: 0, behavior: 'smooth' });
+    // }
   }, [location.pathname]);
 
   return (

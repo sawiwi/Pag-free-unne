@@ -4,12 +4,13 @@ import {
   truncateString,
   parseToCLPCurrency,
   parseToDecimal,
+  ufToClp
 } from '../../../../utils';
 import { company } from '../../../../constants/consts/company';
 import { iconsList } from '../../../Icons';
 
 const PropertyCard = ({ data, isList, property }) => {
-  const { id, title, image, address, commune, city, price, types, surface_m2 } = data;
+  const { id, title, image, address, commune, city, price, types, surface_m2 , bedrooms, bathrooms, covered_parkings_lots} = data;
   const {
     RiPencilRulerLine,
     FaBed,
@@ -57,37 +58,61 @@ const PropertyCard = ({ data, isList, property }) => {
           {truncateString(title ?? 'Titulo de propiedad no registrado', 70)}
         </h5>
         <div className='border border-bottom  mb-4'></div>
-        <div className="flex flex-row ">
-          <div className="flex w-full flex-col justify-between">
-            <div className="flex items-center w-full text-gray-500">
-              <span className="text-gray-400 mr-1">
-                <RiPencilRulerLine />
-              </span>
-              Superficie útil: {surface_m2 ?? 0}m<sup>2</sup> útiles
+        <div class="table w-full">
+          <div class="table-header-group">
+            <div class="table-row ">
+              <div class="table-cell text-sm px-3">m<sup>2</sup> útiles</div>
+              <div class="table-cell text-sm px-3">Dormitorios</div>
+              <div class="table-cell text-sm px-3">Habitaciones</div>
+              <div class="table-cell text-sm px-3">Estacionamientos</div>
+            </div>
+          </div>
+          <div class="table-row-group ">
+            <div class="table-row ">
+              <div class="table-cell px-5 "><RiPencilRulerLine fill='#E85512'/>{bedrooms ?? 0}</div>  
+              <div class="table-cell px-5"><FaBed fill='#E85512' /><span>{bedrooms ?? 0}</span></div>
+              <div class="table-cell px-5"><FaBath  fill='#E85512'/>{bathrooms ?? 0}</div>
+              <div class="table-cell px-5"><GiHomeGarage fill='#E85512' />{covered_parkings_lots ?? 0}</div>
             </div>
           </div>
         </div>
+      </div>
+     
 
         {data?.currency?.name === 'UF' && data?.currency?.isoCode === 'UF' && (
-          <p className="flex justify-end items-center mb-3 font-normal bg-slate-50 border-l-2 border-primary-400 p-1 rounded-sm text-primary">
-            <span className="mr-1">{types?.[0]}: </span>{' '}
-            {parseToDecimal(price || 0)} UF
-          </p>
+          <div className='flex justify-between'>
+            <h1 className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-primary">
+              <span className="mr-1">UF: </span>{' '}
+              {parseToDecimal(price || 0)} 
+            </h1>
+            <p className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-black">
+              <span className="mr-1">CLP: </span>{' '}
+              {price} 
+            </p>
+          </div>
         )}
 
         {data?.currency?.name === 'Peso Chileno' &&
           data?.currency?.isoCode === 'CLP' && (
-            <p className="flex justify-end items-center mb-3 font-normal bg-slate-50 border-l-2 border-primary-400 p-1 rounded-sm text-primary">
-              <span className="mr-1">{types?.[0]}:</span>
-              {parseToCLPCurrency(price)} CLP
+            <div className='flex justify-between'>
+              <p className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-black">
+                <span className="mr-1">CLP:</span>
+                {parseToCLPCurrency(price)}
+              </p>
+              <p className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-primary">
+              <span className="mr-1">UF: </span>{' '}
+              {parseToDecimal(price || 0)} 
             </p>
+            </div>
           )}
 
-        <Link
-          to={`/propiedades/${id}?statusId=${company.statusId}&companyId=${company.companyId}`}
+        {/* <Link
+          // to={`/propiedades/${id}?statusId=${company.statusId}&companyId=${company.companyId}`}
+          to={`https://unnepropiedades.cl/`}
+          target="_blank"
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300"
         >
-          Ver Detalles
+          Ver Más
           <svg
             aria-hidden="true"
             className="w-4 h-4 ml-2 -mr-1"
@@ -101,9 +126,9 @@ const PropertyCard = ({ data, isList, property }) => {
               clipRule="evenodd"
             ></path>
           </svg>
-        </Link>
+        </Link> */}
       </div>
-    </div>
+    
   );
 };
 

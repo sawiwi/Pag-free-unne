@@ -7,9 +7,9 @@ import { paginationTopLimit } from '../../constants/consts/company';
 const PropertiesProvider = ({ children }) => {
   const [properties, setProperties] = useState([]);
   const [allProperties, setAllProperties] = useState([]);
-  const [allSimilarProperties, setAllSimilarProperties] = useState([]);
-  const [highlightedProperties, setHighlightedProperties] = useState([]);
-  const [propertiesInMap, setPropertiesInMap] = useState([]);
+  // const [allSimilarProperties, setAllSimilarProperties] = useState([]);
+  // const [highlightedProperties, setHighlightedProperties] = useState([]);
+  // const [propertiesInMap, setPropertiesInMap] = useState([]);
   const [propertiesToShow, setPropertiesToShow] = useState([]);
   const [propertyId, setPropertyId] = useState('');
   const [page, setPage] = useState(1);
@@ -50,7 +50,7 @@ const PropertiesProvider = ({ children }) => {
           ? data
           : data
       );
-      setHighlightedProperties(data);
+      // setHighlightedProperties(data);
       setTotalItems(meta.totalItems);
       setTotalPages(Math.ceil(meta.totalItems / limit)); // + 0.5
       setNotFoundMsg(
@@ -72,8 +72,8 @@ const PropertiesProvider = ({ children }) => {
       companyId
     );
     setAllProperties(data);
-    setAllSimilarProperties(data);
-    setPropertiesInMap(data);
+    // setAllSimilarProperties(data);
+    // setPropertiesInMap(data);
     setPropertiesToShow(data.slice(0, 10));
   };
 
@@ -96,12 +96,12 @@ const PropertiesProvider = ({ children }) => {
         contextData: {
           properties,
           allProperties,
-          allSimilarProperties,
-          highlightedProperties,
+          // allSimilarProperties,
+          // highlightedProperties,
           setAllProperties,
           propertiesToShow,
           setPropertiesToShow,
-          propertiesInMap,
+          // propertiesInMap,
           setProperties,
           page,
           totalPages,

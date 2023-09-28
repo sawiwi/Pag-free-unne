@@ -5,7 +5,7 @@ import UnneLogoSvg from '../Icons/custom/unneLogo';
 
 const Logo = () => {
   return (
-    <Link to="/">
+    <Link to="https://unne.cl/" target='_blank'>
       {UnneLogo && (
         <UnneLogoSvg></UnneLogoSvg>
       )}

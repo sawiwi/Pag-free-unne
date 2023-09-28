@@ -10,7 +10,7 @@ const HomeComponent = () => {
     <Fragment>
       <CarouselSection />
       <Properties/>
-      <Property/>
+      {/* <Property/> */}
       <About/>
     </Fragment>
   );

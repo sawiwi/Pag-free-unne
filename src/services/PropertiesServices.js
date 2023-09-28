@@ -43,10 +43,10 @@ const PropertiesServices = {
     return response.data;
   },
 
-  getPropertyByIdCode: async (url) => {
-    const response = await api.get(`${url}`);
-    return response.data;
-  },
+  // getPropertyByIdCode: async (url) => {
+  //   const response = await api.get(`${url}`);
+  //   return response.data;
+  // },
 
   // Obtener ventas por venta de departamentos
   getPropertiesByCard: async (

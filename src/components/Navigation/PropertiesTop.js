@@ -15,7 +15,7 @@ const PropertiesTop = ({
   const { contextData } = useContext(PropertiesContext);
   const { sortOrder, handleSortChange } = contextData;
   const { pathname } = useLocation();
-  const { BsFillGridFill, FaThList, FaMapMarkerAlt } = iconsList;
+  const { BsFillGridFill, FaThList, FaMapMarkerAlt,FaSearchPlus} = iconsList;
 
   const getTitle = (pathname) => {
     switch (pathname) {
@@ -89,12 +89,15 @@ const PropertiesTop = ({
             >
               <FaThList />
             </li>
-            {/* <li className="mx-1 p-2.5 bg-gray-100 cursor-pointer text-gray-500">
-              <Link to="/propiedades/propiedades-en-mapa">
-                <FaMapMarkerAlt />
-              </Link>
-            </li> */}
+       
           </ul>
+            
+              <Link to="https://unnepropiedades.cl/" target='_blank' >
+                <div className='inline-flex items-center px-3 py-2 text-sm bg-primary-400 text-white rounded-md hover:bg-primary'>
+                  <span className='mx-3'>Búsqueda avanzada </span>   <FaSearchPlus className='text-base' />
+                </div>
+              </Link>
+            
         </div>
         
       </div>

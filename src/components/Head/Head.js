@@ -1,10 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-const Head = ({ title, description, keywords }) => {
+const Head = ({ description, keywords }) => {
   return (
     <Helmet>
-      <title>Paginas gratis Unne {title && `| ${title}`}</title>
+      <title>Páginas gratis Unne</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
     </Helmet>
