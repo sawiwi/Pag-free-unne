@@ -35,18 +35,18 @@ export const navigationRoutes = [
     path: '#propiedades',
     element: <Properties />,
   },
-  {
-    id: 4,
-    name: 'Contacto',
-    path: '/contacto',
-    element: <Property />,
-  },
-  {
-    id: 5,
-    name: 'Propiedad detalle',
-    path: '/propiedades/:id',
-    element: <Property />,
-  },
+  // {
+  //   id: 4,
+  //   name: 'Contacto',
+  //   path: '/contacto',
+  //   element: <Property />,
+  // },
+  // {
+  //   id: 5,
+  //   name: 'Propiedad detalle',
+  //   path: '/propiedades/:id',
+  //   element: <Property />,
+  // },
   // {
   //   id: 5,
   //   name: 'Propiedades en mapa',
