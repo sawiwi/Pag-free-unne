@@ -150,23 +150,20 @@ const ContactFormServices = {
   sendContactMeetingForm: async (
     from,
     name,
-    lastName,
-    phone,
-    meetingDateTime,
     email,
+    subject,
+    message,
     realtorEmail
   ) => {
     const response = await axios.post(
       `https://formsubmit.co/ajax/${realtorEmail}`,
       {
         Desde: from,
-        Nombre: `${name} ${lastName}`,
-        Telefono: phone,
-        Fecha_y_Hora_Reunion: parseRealtorDate(
-          meetingDateTime ?? new Date()
-        ),
-        Correo: email,
-        '_subject': 'De: Unne.cl'
+        Nombre: name,
+        Email: email,
+        Asunto: subject,
+        Mensaje: message,
+        '_subject': 'De: Mi página web'
       },
       {
         headers: {

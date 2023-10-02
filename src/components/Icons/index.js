@@ -52,6 +52,8 @@ import {
   MdOutlineArrowBackIos,
   MdOutlineFilterList,
   MdOutlineFilterListOff,
+  MdEmail,
+  MdPhoneIphone
 } from 'react-icons/md';
 import { BsFacebook } from 'react-icons/bs';
 import { BsInstagram } from 'react-icons/bs';
@@ -102,6 +104,8 @@ export const iconsList = {
   HiClipboardCheck,
   GoSearch,
   MdSimCardDownload,
+  MdEmail,
+  MdPhoneIphone,
   AiOutlinePlus,
   AiOutlineWhatsApp,
   AiFillPhone,

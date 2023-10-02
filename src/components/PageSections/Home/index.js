@@ -14,20 +14,7 @@ const HomeComponent = () => {
       <CarouselSection />
       <Properties/>
       {/* <Property/> */}
-      <Container>
-      <Row>
-        <Col sm={7}>
-           <About/>
-   
-        </Col>
-        <Col sm={5}>
-        <MeetingForm 
-            title="Contacto corredor"
-            subtitle="Enviar mensaje"
-          /></Col>
-
-      </Row>
-      </Container>
+      <About/>     
     </Fragment>
   );
 };
