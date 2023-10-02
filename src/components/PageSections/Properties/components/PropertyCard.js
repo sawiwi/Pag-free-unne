@@ -58,21 +58,21 @@ const PropertyCard = ({ data, isList, property }) => {
           {truncateString(title ?? 'Titulo de propiedad no registrado', 70)}
         </h5>
         <div className='border border-bottom  mb-4'></div>
-        <div class="table w-full">
-          <div class="table-header-group">
-            <div class="table-row ">
-              <div class="table-cell text-sm px-3">m<sup>2</sup> útiles</div>
-              <div class="table-cell text-sm px-3">Dormitorios</div>
-              <div class="table-cell text-sm px-3">Habitaciones</div>
-              <div class="table-cell text-sm px-3">Estacionamientos</div>
+        <div className="table w-full">
+          <div className="table-header-group">
+            <div className="table-row ">
+              <div className="table-cell text-sm px-3">m<sup>2</sup> útiles</div>
+              <div className="table-cell text-sm px-3">Dormitorios</div>
+              <div className="table-cell text-sm px-3">Habitaciones</div>
+              <div className="table-cell text-sm px-3">Estacionamientos</div>
             </div>
           </div>
-          <div class="table-row-group ">
-            <div class="table-row ">
-              <div class="table-cell px-5 "><RiPencilRulerLine fill='#E85512'/>{bedrooms ?? 0}</div>  
-              <div class="table-cell px-5"><FaBed fill='#E85512' /><span>{bedrooms ?? 0}</span></div>
-              <div class="table-cell px-5"><FaBath  fill='#E85512'/>{bathrooms ?? 0}</div>
-              <div class="table-cell px-5"><GiHomeGarage fill='#E85512' />{covered_parkings_lots ?? 0}</div>
+          <div className="table-row-group ">
+            <div className="table-row ">
+              <div className="table-cell px-5 "><RiPencilRulerLine fill='#E85512'/>{bedrooms ?? 0}</div>  
+              <div className="table-cell px-5"><FaBed fill='#E85512' /><span>{bedrooms ?? 0}</span></div>
+              <div className="table-cell px-5"><FaBath  fill='#E85512'/>{bathrooms ?? 0}</div>
+              <div className="table-cell px-5"><GiHomeGarage fill='#E85512' />{covered_parkings_lots ?? 0}</div>
             </div>
           </div>
         </div>

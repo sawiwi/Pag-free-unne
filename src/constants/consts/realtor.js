@@ -1,4 +1,4 @@
 export const realtorData = {
-  email: 'contacto@unne.cl',
+  email: 'fabians@bidata.cl',
   // email: 'contacto@accionpanal.com',
 };

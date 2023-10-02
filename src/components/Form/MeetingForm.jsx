@@ -9,32 +9,34 @@ import Alert from '../Alert/Alert';
 import { parseRealtorDate } from '../../utils';
 import { realtorData } from '../../constants/consts/realtor';
 import { companyForm } from '../../constants/consts/company';
+import { iconsList } from '../Icons';
+const MeetingForm = ({ title, subtitle, }) => {
+  const { MdEmail, MdPhoneIphone } = iconsList;
 
-const MeetingForm = ({ title, subtitle, DataEmail }) => {
   const [formData, setFormData] = useState({
     name: '',
-    phone: '',
+    phone: 'No indica',
     email: '',
-    termsAndConditions: false,
+    termsAndConditions: true,
     companyId: companyForm.id,
     action: "Contacto",
     message: "",
     subject: "",
-    lastName: '',
-    meetingDate: new Date(),
+    lastName: 'No indica',
+    meetingDate: 'No indicada',
   });
 
   // Variables Date para poder concatenar con MeetingDate
-  const [meetingDate, setMeetingDate] = useState(new Date());
-  const [meetingTime, setMeetingTime] = useState('');
+  // const [meetingDate, setMeetingDate] = useState(new Date());
+  // const [meetingTime, setMeetingTime] = useState('');
 
-  const handleDateChange = (event) => {
-    setMeetingDate(event.target.value);
-  };
+  // const handleDateChange = (event) => {
+  //   setMeetingDate(event.target.value);
+  // };
 
-  const handleTimeChange = (event) => {
-    setMeetingTime(event.target.value);
-  };
+  // const handleTimeChange = (event) => {
+  //   setMeetingTime(event.target.value);
+  // };
 
   const [errorMsg, setErrorMsg] = useState({
     allFieldRequierd: '',
@@ -57,10 +59,10 @@ const MeetingForm = ({ title, subtitle, DataEmail }) => {
     });
   };
 
-  const handleLastname = (ev) => {
+  const handleSubject = (ev) => {
     setFormData({
       ...formData,
-      lastName: ev.target.value,
+      subject: ev.target.value,
     });
   };
 
@@ -73,39 +75,39 @@ const MeetingForm = ({ title, subtitle, DataEmail }) => {
   };
 
   /** Handle Phone change */
-  const handlePhoneChange = (ev) => {
+  const handleMessageChange = (ev) => {
     setFormData({
       ...formData,
-      phone: ev.target.value,
+      message: ev.target.value,
     });
   };
 
-  const handleAction = (ev) => {
-    setFormData({
-      ...formData,
-      action: ev.target.value,
-    });
-  };
+  // const handleAction = (ev) => {
+  //   setFormData({
+  //     ...formData,
+  //     action: ev.target.value,
+  //   });
+  // };
 
-  const handleTermsAndConditions = (ev) => {
-    setFormData({
-      ...formData,
-      termsAndConditions: !formData.termsAndConditions,
-    });
-  };
+  // const handleTermsAndConditions = (ev) => {
+  //   setFormData({
+  //     ...formData,
+  //     termsAndConditions: !formData.termsAndConditions,
+  //   });
+  // };
 
   const resetForm = () => {
     setFormData({
       name: '',
-      phone: '',
+      phone: 'No indicada',
       email: '',
-      termsAndConditions: false,
+      termsAndConditions: true,
       companyId: companyForm.id,
       action: 'Contacto Página web',
       message: '',
       subject: '',
-      lastName: '',
-      meetingDate: new Date(),
+      lastName: 'No indicada',
+      meetingDate: 'No indicada',
     });
   };
 
@@ -143,10 +145,12 @@ const MeetingForm = ({ title, subtitle, DataEmail }) => {
 
   const onFormSubmit = async (ev) => {
     ev.preventDefault();
-    const formattedDate = `${meetingDate} ${meetingTime}`;
-    const parsedDate = parseRealtorDate(formattedDate);
-    const updatedFormData = { ...formData, meetingDate: parsedDate };
+    // const formattedDate = `${meetingDate} ${meetingTime}`;
+    // const parsedDate = parseRealtorDate(formattedDate);
+    // const updatedFormData = { ...formData, meetingDate: parsedDate };
 
+    console.log(
+      formData)
     try {
       if (
         Object.values(formData).includes('') ||
@@ -154,36 +158,39 @@ const MeetingForm = ({ title, subtitle, DataEmail }) => {
       ) {
         setErrorMsg({
           allFieldRequierd:
-            'Por favor, completa todos los campos y sacepta los terminos y condiciones',
+            'Por favor, completa todos los campos',
         });
         return;
       }
 
-      if (!meetingDate || !meetingTime) {
-        setErrorMsg({
-          allFieldRequierd:
-            'Por favor debes definir una fecha y hora de encuentro',
-        });
-        return;
-      }
+      // if (!meetingDate || !meetingTime) {
+      //   setErrorMsg({
+      //     allFieldRequierd:
+      //       'Por favor debes definir una fecha y hora de encuentro',
+      //   });
+      //   return;
+      // }
 
-      if (!formData.meetingDate) {
-        setErrorMsg({
-          allFieldRequierd:
-            'PorRR favor debes definir una fecha y hora de encuentro',
-        });
-        return;
-      }
+      // if (!formData.meetingDate) {
+      //   setErrorMsg({
+      //     allFieldRequierd:
+      //       'Por favor debes definir una fecha y hora de encuentro',
+      //   });
+      //   return;
+      // }
 
       setLoading(true);
       const response = await ContactFormServices.sendContactMeetingForm(
-        'Unne',
+        'Mi Página web',
         formData?.name,
-        formData?.lastName,
-        formData?.phone,
-        formData?.meetingDate,
+        // formData?.lastName,
         formData?.email,
+        formData?.action,
+        formData?.message,
+        // formData?.email,
         realtorData?.email
+        // formData?.meetingDate,
+
       );
 
       /** Api services */
@@ -208,7 +215,7 @@ const MeetingForm = ({ title, subtitle, DataEmail }) => {
         });
         setSuccessMsg({
           formSubmitMsg:
-            'Solicitud enviada con exito! Un ejecutivo se contactara contigo',
+            'Solicitud enviada con exito! Un ejecutivo se contactará contigo',
           formApiMsg: 'Success!!!',
         });
         setTimeout(() => {
@@ -229,29 +236,36 @@ const MeetingForm = ({ title, subtitle, DataEmail }) => {
   };
 
   return (
-    <div className="rounded-[25px] p-4 my-10 xl:py-5 xl:px-10 xl:m-0 w-full ">
+    <div className="rounded-[25px] p-4 my-10 xl:py-5 xl:px-2 xl:m-0 w-full ">
       {/* xl:w-3/5 */}
-      <div className="text-center">
-        <h2 className="text-4xl font-bold py-2 text-gray-800">{title}</h2>
-        <span className='text-md font-normal text-gray-500'>{subtitle}</span>
-      </div>
+        <div className="text-center bg-primary rounded-full  font-semibold mb-2">
+          <h2 className="text-3xl font-semibold py-2 text-white">{title}</h2>
+        </div>
+        <div className="text-start py-1 flex items-center">
+          <MdPhoneIphone className='w-[30px] h-[30px] border border-2 rounded-full p-1 mx-1'/><span className='font-normal '><b>Teléfono: </b> +56 9 321 421 76 </span>
+        </div>
+        <div className="text-start py-1 flex">
+          <MdEmail className='w-[30px] h-[30px] border border-2 rounded-full p-1 mx-1'/><span className='font-normal '><b>Correo: </b> nombre@unne.cl </span>
+        </div>
+
       <form name="FormsData" onSubmit={onFormSubmit} className="py-6 px-4">
-        <div className="grid grid-cols-1 gap-x-20 gap-y-3 py-5 mx-96 max-sm:divide-y-2 max-sm:divide-[#d8d8da]">
+        <span className='text-md font-normal text-gray-500'>{subtitle}</span>
+        <div className="grid grid-cols-1 gap-x-20 gap-y-3 py-5 max-sm:divide-y-2 max-sm:divide-[#d8d8da]">
           <div className="max-sm:py-2">
             <input
-              className="block w-full rounded-full bg-slate-50 py-2 px-2 outline-2 border-2 border-[#E85512D4]"
+              className="block w-full rounded-full bg-white py-2 px-2 outline-2 border-2 border-[#E85512D4]"
               type="text"
               placeholder="Nombre"
-              name="user_name"
+              name="name"
               id="name"
               value={formData?.name}
               onChange={handleNameChange}
             />
           </div>
 
-          <div className="max-sm:py-2">
+          {/* <div className="max-sm:py-2">
             <input
-              className="block w-full rounded-full bg-slate-50 py-2 px-2 outline-2 border-2 border-[#E85512D4]"
+              className="block w-full rounded-full bg-white py-2 px-2 outline-2 border-2 border-[#E85512D4]"
               type="text"
               placeholder="Apellido"
               name="user_lastname"
@@ -259,14 +273,14 @@ const MeetingForm = ({ title, subtitle, DataEmail }) => {
               value={formData?.lastName}
               onChange={handleLastname}
             />
-          </div>
+          </div> */}
 
           <div className="max-sm:py-2">
             <input
-              className="block w-full rounded-full bg-slate-50 py-2 px-2 outline-2 border-2 border-[#E85512D4]"
+              className="block w-full rounded-full bg-white py-2 px-2 outline-2 border-2 border-[#E85512D4]"
               type="email"
-              placeholder="email"
-              name="user_email"
+              placeholder="Email"
+              name="email"
               id="email"
               value={formData?.email}
               onChange={handleEmailChange}
@@ -275,45 +289,54 @@ const MeetingForm = ({ title, subtitle, DataEmail }) => {
 
           <div className="max-sm:py-2">
             <input
-              className="block w-full rounded-full bg-slate-50 py-2 px-2 outline-2 border-2 border-[#E85512D4]"
+              className="block w-full rounded-full bg-white py-2 px-2 outline-2 border-2 border-[#E85512D4]"
               type="text"
-              placeholder="Ej: 9 9999 9999"
-              name="user_phone"
-              id="phone"
-              value={formData?.phone}
-              onChange={handlePhoneChange}
-              pattern="[0-9]{9}"
-              maxLength="9"
+              placeholder="Asunto"
+              name="subject"
+              id="subject"
+              value={formData?.subject}
+              onChange={handleSubject}
             />
           </div>
           <div className="max-sm:py-2">
+            <textarea
+              className="textarea textarea-bordered w-full textarea-lg rounded-2xl bg-white py-2 px-2 outline-2 border-2 border-[#E85512D4]"
+              type="text"
+              placeholder="Mensaje"
+              name="message"
+              id="message"
+              value={formData?.message}
+              onChange={handleMessageChange}
+            ></textarea>
+          </div>
+          {/* <div className="max-sm:py-2">
             <input
-              className="block w-full rounded-full bg-slate-50 py-2 px-2 outline-2 border-2 border-[#E85512D4]"
+              className="block w-full rounded-full bg-white py-2 px-2 outline-2 border-2 border-[#E85512D4]"
               type="date"
               name="date"
               id="date"
-              /*   value={formData?.meetingDate}
+                value={formData?.meetingDate}
                               onChange={(e) =>
                                   setFormData({
                                       ...formData,
                                       meetingDate: e.target.value,
                                   })
-                              } */
+                              } 
               value={meetingDate}
               onChange={handleDateChange}
             />
-          </div>
-
+          </div> */}
+{/* 
           <div className="max-sm:py-2">
             <input
-              className="block w-full rounded-full bg-slate-50 py-2 px-2 outline-2 border-2 border-[#E85512D4]"
+              className="block w-full rounded-full bg-white py-2 px-2 outline-2 border-2 border-[#E85512D4]"
               type="time"
               name="time"
               id="time"
               value={meetingTime}
               onChange={handleTimeChange}
             />
-          </div>
+          </div> */}
         </div>
 
         {/* <div className="w-5/6 mx-auto my-14 mb-10 flex items-center justify-center">
@@ -337,7 +360,7 @@ const MeetingForm = ({ title, subtitle, DataEmail }) => {
         </div> */}
 
         {errorMsg?.serverEmailError && (
-          <Alert type="danger" message={errorMsg?.serverEmailError} />
+          <Alert type="warning" message={errorMsg?.serverEmailError} />
         )}
 
         {errorMsg.allFieldRequierd && (
