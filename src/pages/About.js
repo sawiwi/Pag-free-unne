@@ -6,16 +6,18 @@ import AboutComponent from '../components/PageSections/About';
 const About = () => {
   const location = useLocation();
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (location.pathname === '/sobre-mi') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }, [location.pathname]);
+  }, [location.pathname]); */
 
   return (
     <Fragment>
-      <Head title="Sobre mi" />
-      <AboutComponent />
+      <div id='AboutSectionScroll'>
+        <AboutComponent />
+      </div>
+      
     </Fragment>
   );
 };

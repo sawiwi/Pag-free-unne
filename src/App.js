@@ -5,9 +5,7 @@ import Layout from './components/Layout/Layout';
 function App() {
   return (
     <Fragment>
-      <Layout>
-        <AppRoutes />
-      </Layout>
+      <Layout/>
     </Fragment>
   );
 }
