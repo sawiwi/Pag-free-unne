@@ -2,12 +2,16 @@ export const navigationData = [
   {
     id: 1,
     name: 'Inicio',
-    href: '/',
+    toScroll: 'IndexSection',
+    offset: -120,
+    duration: 500
   },
   {
     id: 2,
     name: 'Mis propiedades',
-    href: '/propiedades',
+    toScroll: 'PropertiesSectionScroll',
+    offset: -120,
+    duration: 500
   }, 
     //  {
   //   id: 6,
@@ -17,16 +21,22 @@ export const navigationData = [
   {
     id: 3,
     name: 'Sobre mi',
-    href: '/sobre-mi',
+    toScroll: 'AboutSectionScroll',
+    offset: -120,
+    duration: 500
   },
   {
     id: 4,
     name: 'Contacto',
-    href: '/contacto',
+    toScroll: 'ContactSectionScroll',
+    offset: -120,
+    duration: 500
   },
   {
     id: 5,
     name: 'Mi cuenta',
-    href: 'https://unne.prop360.cl/',
+    toScroll: 'https://unne.prop360.cl/',
+    offset: -120,
+    duration: 500
   },
 ];

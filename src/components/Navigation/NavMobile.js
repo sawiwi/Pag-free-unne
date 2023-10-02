@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-scroll';
 import ButtonClose from '../BottonClose/BottonClose';
 import Logo from '../Logo/Logo';
 import { Disclosure } from '@headlessui/react';
@@ -8,74 +8,37 @@ import { iconsList } from '../Icons';
 
 const NavMobile = ({ data = navigationData, onClickClose }) => {
   const { MdOutlineArrowDropDown } = iconsList;
-  const _renderMenuChild = (item) => {
-    return (
-      <ul className="nav-mobile-sub-menu pl-6 pb-1 text-base">
-        {item.children?.map((i, index) => (
-          <Disclosure key={i.href + index} as="li">
-            <Link
-              to={i.href || '/'}
-              className="flex px-4 py-2.5 text-black text-sm font-medium rounded-lg hover:bg-[#e5e7eb] mt-[2px]"
-            >
-              <span
-                className={!i.children ? 'block w-full' : ''}
-                onClick={onClickClose}
-              >
-                {i.name}
-              </span>
-              {i.children && (
-                <span
-                  className="block flex-grow"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <Disclosure.Button
-                    as="span"
-                    className="flex justify-end flex-grow"
-                  ></Disclosure.Button>
-                </span>
-              )}
-            </Link>
-            {i.children && (
-              <Disclosure.Panel>{_renderMenuChild(i)}</Disclosure.Panel>
-            )}
-          </Disclosure>
-        ))}
-      </ul>
-    );
-  };
 
   const _renderItem = (item) => {
     return (
       <Disclosure key={item.id} as="li" className="text-gray-900">
-        <Link
-          className="flex w-full items-center py-2.5 px-4 font-medium uppercase tracking-wide text-sm hover:bg-[#e5e7eb] rounded-lg"
-          to={{
-            pathname: item.href || undefined,
-          }}
-        >
-          <span
-            className={!item.children ? 'block w-full' : ''}
-            onClick={onClickClose}
+        {item.name.toLowerCase() != 'mi cuenta' ? (
+          <Link
+            className="flex w-full items-center py-2.5 px-4 font-medium uppercase tracking-wide text-sm hover:bg-[#e5e7eb] rounded-lg"
+            to={item.toScroll}
+            spy={true} 
+            smooth={true} 
+            offset={item.offset} 
+            duration={item.duration} 
           >
-            {item.name}
-          </span>
-          {item.children && (
             <span
-              className="block flex-grow"
-              onClick={(e) => e.preventDefault()}
+              className={'block w-full'}
+              onClick={onClickClose}
             >
-              <Disclosure.Button
-                as="span"
-                className="flex justify-end flex-grow"
-              >
-                <MdOutlineArrowDropDown className="text-2xl" />
-              </Disclosure.Button>
+              {item.name}
             </span>
-          )}
-        </Link>
-        {item.children && (
-          <Disclosure.Panel>{_renderMenuChild(item)}</Disclosure.Panel>
+          </Link>
+        ) : (
+          <a href={item.toScroll} className={'flex w-full items-center py-2.5 px-4 font-medium uppercase tracking-wide text-sm hover:bg-[#e5e7eb] rounded-lg'} target='_blank'>
+            <span
+              className={'block w-full'}
+              onClick={onClickClose}
+            >
+              {item.name}
+            </span>
+          </a>
         )}
+        
       </Disclosure>
     );
   };

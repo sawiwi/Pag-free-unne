@@ -7,7 +7,7 @@ import PropertiesComponent from '../../components/PageSections/Properties';
 const Properties = () => {
   const location = useLocation();
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (location.pathname === '/propiedades') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }  else if (location.pathname === '/sobre-mi') {
@@ -16,13 +16,15 @@ const Properties = () => {
     // else if (location.pathname === '/contacto') {
     //   window.scrollTo({ top: 0, behavior: 'smooth' });
     // }
-  }, [location.pathname]);
+  }, [location.pathname]); */
 
   return (
-    <Section className="relative flex flex-col md:flex-row">
-      <Head title="Propiedades" />
-      <PropertiesComponent />
-    </Section>
+    <div id='PropertiesSectionScroll'>
+      <Section className="relative flex flex-col md:flex-row">
+        <PropertiesComponent />
+      </Section>
+    </div>
+    
   );
 };
 
