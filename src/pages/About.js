@@ -15,7 +15,8 @@ const About = () => {
   return (
     <Fragment>
       <Head title="Sobre mi" />
-      <AboutComponent />
+      <AboutComponent /> 
+      
     </Fragment>
   );
 };
