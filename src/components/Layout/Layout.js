@@ -24,7 +24,6 @@ const Layout = () => {
       <CarouselSection/> 
       <Properties/>
       <About/>
-      <MeetingForm title="Contacto corredor" subtitle="Enviar mensaje"/>
 
       {/* FOOTER PAGE */}
       <Footer />
