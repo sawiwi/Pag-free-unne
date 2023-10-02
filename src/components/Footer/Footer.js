@@ -121,9 +121,8 @@ const Footer = () => (
           <div className="">
             <div className='mt-5'>
               {navigationData.map((item)=>(
-                <div>
+                <div key={item.id}>
                   {item.name.toLowerCase() != 'mi cuenta' ? (<Link 
-                  key={item.id}
                   className='text-md text-gray-800 mt-1 cursor-pointer hover:text-primary '
                   to={item.toScroll}
                   spy={true} 
