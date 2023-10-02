@@ -4,10 +4,12 @@ import {
   truncateString,
   parseToCLPCurrency,
   parseToDecimal,
-  ufToClp
+  ufToClp,
+  clpToUf
 } from '../../../../utils';
 import { company } from '../../../../constants/consts/company';
 import { iconsList } from '../../../Icons';
+import { is } from '@babel/types';
 
 const PropertyCard = ({ data, isList, property }) => {
   const { id, title, image, address, commune, city, price, types, surface_m2 , bedrooms, bathrooms, covered_parkings_lots} = data;
@@ -42,7 +44,7 @@ const PropertyCard = ({ data, isList, property }) => {
       />
 
       <div className="p-3">
-        <div className='flex flex-row justify-between'>
+        <div className={`${isList ? 'grid grid-cols-2  xl:w-[50vw]': ""} flex flex-row justify-between`}>
           <small className="mb-3 font-normal text-sm text-gray-400 flex items-start justify-start">
             <BiMap className="text-xl mr-1" />
             {truncateString(
@@ -78,30 +80,31 @@ const PropertyCard = ({ data, isList, property }) => {
         </div>
       </div>
      
-
+    
         {data?.currency?.name === 'UF' && data?.currency?.isoCode === 'UF' && (
-          <div className='flex justify-between'>
+          <div className= {`${isList ? 'grid grid-cols-1' : ""}flex justify-between`}>
             <h1 className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-primary">
               <span className="mr-1">UF: </span>{' '}
-              {parseToDecimal(price || 0)} 
+              {parseToDecimal(data.price || 0)} 
             </h1>
             <p className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-black">
               <span className="mr-1">CLP: </span>{' '}
-              {price} 
+              {parseToCLPCurrency(data.price)} 
             </p>
           </div>
         )}
 
+
         {data?.currency?.name === 'Peso Chileno' &&
           data?.currency?.isoCode === 'CLP' && (
-            <div className='flex justify-between'>
+            <div className={`${isList ? 'grid grid-cols-1': ""}flex justify-between`}>
               <p className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-black">
                 <span className="mr-1">CLP:</span>
-                {parseToCLPCurrency(price)}
+                {parseToCLPCurrency(data.price)}
               </p>
               <p className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-primary">
               <span className="mr-1">UF: </span>{' '}
-              {parseToDecimal(price || 0)} 
+              {parseToDecimal(data.price || 0)} 
             </p>
             </div>
           )}
