@@ -1,57 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-scroll';
 import Button from '../Button/Button';
+import { navigationData } from '../../data/navigation';
 
 const Footer = () => (
   <footer className="bg-gray-100 pt-10 pb-20 xl:px-32">
     <div className="flex flex-wrap justify-center mx-4 lg:mx-0">
-    <div className="w-full flex justify-center sm:justify-start items-center sm:items-start flex-col sm:w-1/2 lg:w-4/12">
-        <div className="w-5/6">
-          <Button
-            href="/"
-            className="w-96 py-2 px-3 text-xl text-center my-6 bg-primary hover:bg-primary-opacity hover:shadow-md"
-          >
-           Contacto corredor
-          </Button>
-          <div className="h-48">
-            <ul className="text-md text-gray-900 mt-5">
-              <li>
-                <p className="text-md text-gray-800 mt-5">
-                  <span className="font-bold text-gray-900">Nombre:</span>{' '}
-                  Nombre apellido
-                </p>
-              </li>
-              <li>
-                <p className="text-md text-gray-800 mt-5">
-                  <span className="font-bold text-gray-900">Dirección:</span>{' '}
-                    calle #1234, Of. 123, Comuna.
-                </p>
-              </li>
-              <li>
-                <p className="text-md text-gray-800 mt-5">
-                  <span className="font-bold text-gray-900">Teléfono:</span>{' '}
-                  +56 9 8765 4321
-                </p>
-              </li>
-              <li>
-                <p className="text-md text-gray-800 mt-5">
-                  <span className="font-bold text-gray-900">Correo:</span>{' '}
-                  nombre@unne.cl
-                </p>
-              </li>
-  
-            </ul>
-            {/* <p className="text-md text-gray-900 mt-5">
-              Quiero saber más sobre los
-              <a href="#" className="text-primary hover:text-yellow-500">
-                {' '}
-                términos y condiciones
-              </a>
-            </p> */}
-          </div>
-        </div>
-      </div>
-      <div className="w-full flex justify-center sm:justify-start items-center sm:items-start flex-col sm:w-1/2 lg:w-4/12">
+      <div className="pl-2 w-full flex justify-center sm:justify-start items-center sm:items-start flex-col sm:w-1/2 lg:w-4/12">
         <div className="w-5/6">
           <Button
             href="/"
@@ -66,20 +21,30 @@ const Footer = () => (
             </p>
             <p className="text-md text-gray-800 mt-1">
               <span className="font-bold text-gray-900">Teléfono:</span> +56
-              264653732
+              2 6465 3732
             </p>
             <p className="text-md text-gray-800 mt-1">
               <span className="font-bold text-gray-900">WhatsApp:</span> +56
-              932924867
+              9 3292 4867
             </p>
             <p className="text-md text-gray-800 mt-1">
               <span className="font-bold text-gray-900">Correo:</span>{' '}
               contacto@unne.cl
             </p>
-            <div className="d-flex flex-col text-md text-gray-800 mt-1">
-              <span className="font-bold uppercase text-gray-900">
-                SÍGUENOS EN:
-              </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="pl-2 w-full flex justify-center sm:justify-start items-center sm:items-start flex-col sm:w-1/2 lg:w-4/12">
+        <div className="w-5/6">
+          <Button
+            href="/"
+            className="w-96 py-2 px-3 text-xl text-center my-4 bg-primary hover:bg-primary-opacity hover:shadow-md"
+          >
+            SÍGUENOS EN:
+          </Button>
+          <div className="h-32">
+            <div className="d-flex flex-col text-md text-gray-800 mt-5">
               <div className="flex justify-start items-center my-3">
                 <a
                   href="https://www.facebook.com/unnechile?mibextid=ZbWKwL/"
@@ -145,7 +110,40 @@ const Footer = () => (
         </div>
       </div>
 
-     
+      <div className="pl-2 w-full flex justify-center sm:justify-start items-center sm:items-start flex-col sm:w-1/2 lg:w-4/12">
+        <div className="w-5/6">
+          <Button
+            href="/"
+            className="w-96 py-2 px-3 text-xl text-center my-4 bg-primary hover:bg-primary-opacity hover:shadow-md"
+          >
+            Menú
+          </Button>
+          <div className="">
+            <div className='mt-5'>
+              {navigationData.map((item)=>(
+                <div>
+                  {item.name.toLowerCase() != 'mi cuenta' ? (<Link 
+                  key={item.id}
+                  className='text-md text-gray-800 mt-1 cursor-pointer hover:text-primary '
+                  to={item.toScroll}
+                  spy={true} 
+                  smooth={true} 
+                  offset={item.offset} 
+                  duration={item.duration} 
+                  >
+                    {item.name}
+                  </Link>) : (
+                    <a href={item.toScroll} className={'text-md text-gray-800 mt-1 cursor-pointer hover:text-primary'} target='_blank'>{item.name}</a>
+                  )}
+                  
+                </div>
+              ))}
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </footer>
 );
