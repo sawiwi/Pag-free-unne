@@ -30,7 +30,23 @@ const NavigationItem = ({ menuItem }) => {
   return (
     
     <>
-      {menuItem.name.toLowerCase() != 'mi cuenta' ? (
+      {menuItem.name.toLowerCase() === 'mi cuenta' ? (
+        <li className='nav-item'>
+          <a href={menuItem.toScroll} className={myAcount} target='_blank'>{menuItem.name}</a>
+        </li>) : 
+        menuItem.name.toLowerCase() == 'contacto' ? 
+        (<li className='nav-item'>
+          <Link activeClass={ActiveClassTw} 
+            className={viewActive ? ActiveClassTw : hoverEffect +' '+ NoActiveClassTw} 
+            to={menuItem.toScroll}  
+            smooth={true} 
+            offset={menuItem.offset} 
+            duration={menuItem.duration} 
+            onSetActive={() => handleActive(true)} 
+            onSetInactive={() => handleInActive(false)}>
+            {menuItem.name}
+          </Link>
+        </li>) : (
         <li className='nav-item'>
           <Link activeClass={ActiveClassTw} 
             className={viewActive ? ActiveClassTw : hoverEffect +' '+ NoActiveClassTw} 
@@ -43,9 +59,6 @@ const NavigationItem = ({ menuItem }) => {
             onSetInactive={() => handleInActive(false)}>
             {menuItem.name}
           </Link>
-        </li>) : (
-        <li className='nav-item'>
-            <a href={menuItem.toScroll} className={myAcount} target='_blank'>{menuItem.name}</a>
         </li>)
         }
       

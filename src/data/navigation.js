@@ -28,7 +28,7 @@ export const navigationData = [
   {
     id: 4,
     name: 'Contacto',
-    toScroll: 'ContactSectionScroll',
+    toScroll: 'AboutSectionScroll',
     offset: -120,
     duration: 500
   },
