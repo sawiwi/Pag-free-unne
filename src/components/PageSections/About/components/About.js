@@ -6,7 +6,7 @@ const About = () => {
   return (
     <Section>
       {/* <Fade delay={300} direction="right"> */}
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4">
         <div className="col-span-2 flex flex-col justify-center mx-4 xl:ml-24">
           <h2 className="text-2xl xl:text-5xl text-center  text-primary font-bold">
             Sobre mi
@@ -45,7 +45,7 @@ const About = () => {
             </div>
           </div> */}
         </div>
-        <div className="flex items-center justify-center flex-col">
+        {/* <div className="flex items-center justify-center flex-col">
           <img
             src="https://res.cloudinary.com/dvdb33uyj/image/upload/v1691681682/Projects/unne/img/experienciaUsuarios/mujer.png"
             alt="about-img"
@@ -58,8 +58,8 @@ const About = () => {
               <br />
               se inicia con un solo paso...”
             </h2>
-          </div> */}
-        </div>
+          </div> 
+        </div> */}
       </div>
       {/* </Fade> */}
     </Section>

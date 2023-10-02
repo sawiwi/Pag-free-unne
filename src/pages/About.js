@@ -17,7 +17,6 @@ const About = () => {
       <div id='AboutSectionScroll'>
         <AboutComponent />
       </div>
-      
     </Fragment>
   );
 };
