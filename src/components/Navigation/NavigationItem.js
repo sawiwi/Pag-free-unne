@@ -20,7 +20,7 @@ const NavigationItem = ({ menuItem }) => {
 
   const handleActive = (viewName) => {
     setViewActive(viewName);
-    document.title = 'Páginas gratis Unne '+ menuItem.name;
+    document.title = 'Página gratis Unne - '+ menuItem.name;
   };
 
   const handleInActive = (viewName) => {

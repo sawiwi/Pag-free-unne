@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { PropertiesContext } from './PropertiesContext';
 import PropertiesServices from '../../services/PropertiesServices';
+import ExchangeRateServices from '../../services/ExchangeRateServices';
 import { paginationTopLimit } from '../../constants/consts/company';
 
 const PropertiesProvider = ({ children }) => {
@@ -18,6 +19,9 @@ const PropertiesProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [notFoundMsg, setNotFoundMsg] = useState('');
   const [sortOrder, setSortOrder] = useState('');
+
+  const [valueUf, setValueUf] = useState('');
+
   const { pathname } = useLocation();
 
   const handleSortChange = (event) => {
@@ -77,6 +81,15 @@ const PropertiesProvider = ({ children }) => {
     setPropertiesToShow(data.slice(0, 10));
   };
 
+  const getValueUF = async () => {
+    const value = await ExchangeRateServices.getExchangeRateUF();
+    setValueUf(value.UFs[0]);
+  };
+
+  useEffect(() => {
+    getValueUF();
+  }, []);
+
   useEffect(() => {
     getAllProperties();
   }, []);
@@ -116,6 +129,7 @@ const PropertiesProvider = ({ children }) => {
           handleSortChange,
           sortOrder,
           setSortOrder,
+          valueUf,
         },
       }}
     >

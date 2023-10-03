@@ -14,6 +14,9 @@ export const parseToCLPCurrency = (number) => {
 export const clpToUf = (clpValue, ufValue) => {
   return (Math.round((clpValue / ufValue) * 100) / 100000).toFixed(2);
 };
+export const clpToUf2 = (clpValue, ufValue) => {
+  return (clpValue / ufValue).toFixed(2);
+};
 
 /** Parse UF to CLP */
 export const ufToClp = (priceUF, ufValue) => priceUF * ufValue;

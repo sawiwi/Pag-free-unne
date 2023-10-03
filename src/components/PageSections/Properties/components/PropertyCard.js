@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   truncateString,
   parseToCLPCurrency,
   parseToDecimal,
   ufToClp,
-  clpToUf
+  clpToUf2
 } from '../../../../utils';
 import { company } from '../../../../constants/consts/company';
 import { iconsList } from '../../../Icons';
 import { is } from '@babel/types';
 
-const PropertyCard = ({ data, isList, property }) => {
+const PropertyCard = ({ data, isList, property,valueUf }) => {
   const { id, title, image, address, commune, city, price, types, surface_m2 , bedrooms, bathrooms, covered_parkings_lots} = data;
   const {
     RiPencilRulerLine,
@@ -22,6 +22,33 @@ const PropertyCard = ({ data, isList, property }) => {
     BsCheckCircle,
     BiMap
   } = iconsList;
+
+  const _renderItem = (name,code,price) => {
+    let ufValue = price;
+    let clpValue = price;
+
+    let valueIntUF = valueUf.Valor.replace(/\./g, '').replace(',', '.');
+
+    if (name === 'UF' && code === 'UF'){
+      clpValue = ufToClp(price,valueIntUF);
+    }
+    if (name === 'Peso Chileno' && code === 'CLP'){
+      ufValue = clpToUf2(price,valueIntUF);
+    }
+
+    return (
+      <div className= {`${isList ? 'grid grid-cols-1' : ""}flex justify-between`}>
+        <h1 className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-primary">
+          <span className="mr-1">UF: </span>{' '}
+          {parseToDecimal(ufValue)} 
+        </h1>
+        <p className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-black">
+          <span className="mr-1">CLP: </span>{' '}
+          {parseToCLPCurrency(clpValue)}
+        </p>
+      </div>
+    )
+  };
 
   return (
     <div
@@ -79,35 +106,7 @@ const PropertyCard = ({ data, isList, property }) => {
           </div>
         </div>
       </div>
-     
-    
-        {data?.currency?.name === 'UF' && data?.currency?.isoCode === 'UF' && (
-          <div className= {`${isList ? 'grid grid-cols-1' : ""}flex justify-between`}>
-            <h1 className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-primary">
-              <span className="mr-1">UF: </span>{' '}
-              {parseToDecimal(data.price || 0)} 
-            </h1>
-            <p className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-black">
-              <span className="mr-1">CLP: </span>{' '}
-              {parseToCLPCurrency(data.price)} 
-            </p>
-          </div>
-        )}
-
-
-        {data?.currency?.name === 'Peso Chileno' &&
-          data?.currency?.isoCode === 'CLP' && (
-            <div className={`${isList ? 'grid grid-cols-1': ""}flex justify-between`}>
-              <p className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-black">
-                <span className="mr-1">CLP:</span>
-                {parseToCLPCurrency(data.price)}
-              </p>
-              <p className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-primary">
-              <span className="mr-1">UF: </span>{' '}
-              {parseToDecimal(data.price || 0)} 
-            </p>
-            </div>
-          )}
+      {_renderItem(data?.currency?.name, data?.currency?.isoCode, data.price)}
 
         {/* <Link
           // to={`/propiedades/${id}?statusId=${company.statusId}&companyId=${company.companyId}`}
@@ -130,8 +129,7 @@ const PropertyCard = ({ data, isList, property }) => {
             ></path>
           </svg>
         </Link> */}
-      </div>
-    
+    </div>
   );
 };
 
