@@ -26,6 +26,7 @@ const Properties = ({ isGrid, isList, setIsGrid, setIsList }) => {
     handlePageChange,
     isLoading,
     notFoundMsg,
+    valueUf,
   } = contextData;
   const { RiArrowDownSLine } = iconsList;
   const [showMore, setShowMore] = useState(false);
@@ -87,6 +88,7 @@ const Properties = ({ isGrid, isList, setIsGrid, setIsList }) => {
                   key={character.id}
                   data={character}
                   isList={isList}
+                  valueUf={valueUf}
                 />
               ))}
             </ul>
