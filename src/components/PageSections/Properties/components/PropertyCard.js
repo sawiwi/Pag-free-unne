@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   truncateString,
@@ -10,8 +10,10 @@ import {
 import { company } from '../../../../constants/consts/company';
 import { iconsList } from '../../../Icons';
 import { is } from '@babel/types';
+import {Button, Modal, ModalBody} from 'reactstrap';
 
 const PropertyCard = ({ data, isList, property,valueUf }) => {
+  const [modalOpen, setModalOpen]= useState(false); 
   const { id, title, image, address, commune, city, price, types, surface_m2 , bedrooms, bathrooms, covered_parkings_lots} = data;
   const {
     RiPencilRulerLine,
@@ -22,6 +24,16 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
     BsCheckCircle,
     BiMap
   } = iconsList;
+
+const openModal=()=>{
+  setModalOpen(true)
+}
+
+console.log(modalOpen)
+
+const closeModal=()=>{
+  setModalOpen(false)
+}
 
   const _renderItem = (name,code,price) => {
     let ufValue = price;
@@ -107,12 +119,12 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
         </div>
       </div>
       {_renderItem(data?.currency?.name, data?.currency?.isoCode, data.price)}
-
-        {/* <Link
+      <div className='flex justify-end'>
+      {/* <Link
           // to={`/propiedades/${id}?statusId=${company.statusId}&companyId=${company.companyId}`}
-          to={`https://unnepropiedades.cl/`}
+          // to={`https://unnepropiedades.cl/`}
           target="_blank"
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300"
+          className="inline-flex items-center px-6 py-2 text-sm m-2 font-medium text-center text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300"
         >
           Ver Más
           <svg
@@ -129,6 +141,37 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
             ></path>
           </svg>
         </Link> */}
+      </div>
+
+      <div className='flex justify-end'>
+        <Button onClick={openModal} type='button'
+        className="inline-flex items-center px-6 py-2 text-sm m-2 font-medium text-center text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300">Ver</Button>
+      </div>
+
+        <Modal
+          isOpen={modalOpen}
+          toggle={closeModal}
+          className="modal-dialog-centered"
+          size="lg" zIndex="999"
+        >
+          <ModalBody>
+            <a
+              href="#cancel"
+              onClick={(ev) => {
+                ev.preventDefault();
+                closeModal();
+              }}
+              className="close"
+            >
+              {/* <Icon name="cross-sm"></Icon> */}
+            </a>
+            <h2>Hola
+
+            </h2>
+          </ModalBody>
+        </Modal>
+
+        
     </div>
   );
 };
