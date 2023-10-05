@@ -45,7 +45,7 @@ export const navigationRoutes = [
     id: 4,
     name: 'Propiedad detalle',
     path: '/propiedades/:id',
-    element: <Property />,
+    element: <Modal />,
   },
   // {
   //   id: 5,

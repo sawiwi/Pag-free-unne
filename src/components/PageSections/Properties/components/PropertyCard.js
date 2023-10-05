@@ -1,4 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , Fragment} from 'react';
+import { Dialog, Transition } from '@headlessui/react'
+import ModalDetailProperty from './ModalDetailProperty';
+// import GalleryCarousel from '../../../GalleryCarousel/GalleryCarousel';
+
 import { Link } from 'react-router-dom';
 import {
   truncateString,
@@ -120,6 +124,79 @@ const closeModal=()=>{
       </div>
       {_renderItem(data?.currency?.name, data?.currency?.isoCode, data.price)}
       <div className='flex justify-end'>
+      <Link
+          to={`/propiedades/${id}?statusId=${company.statusId}&companyId=${company.companyId}`}  
+          onClick={openModal}
+          className="inline-flex items-center px-6 py-2 text-sm m-2 font-medium text-center text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300"
+        >VER</Link>
+{/* 
+      <button
+          type="button"
+          onClick={openModal}
+          className="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        >
+          Open dialog
+        </button> */}
+
+
+<Transition appear show={modalOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10 w-[1200px]" onClose={closeModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <ModalDetailProperty/>
+                {/* <Dialog.Panel className="w-full max-w-6xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-medium leading-6 text-gray-900"
+                  >
+                    Payment successful
+                  </Dialog.Title>
+                  <div className="mt-2">
+                  <GalleryCarousel items={property} />
+                    <p className="text-sm text-gray-500">
+                      Your payment has been successfully submitted. We’ve sent
+                      you an email with all of the details of your order.
+                    </p>
+                  </div>
+
+                  <div className="mt-4">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                    >
+                      Got it, thanks!
+                    </button>
+                  </div>
+                </Dialog.Panel> */}
+                
+    
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
       {/* <Link
           // to={`/propiedades/${id}?statusId=${company.statusId}&companyId=${company.companyId}`}
           // to={`https://unnepropiedades.cl/`}
@@ -143,7 +220,7 @@ const closeModal=()=>{
         </Link> */}
       </div>
 
-      <div className='flex justify-end'>
+      {/* <div className='flex justify-end'>
         <Button onClick={openModal} type='button'
         className="inline-flex items-center px-6 py-2 text-sm m-2 font-medium text-center text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300">Ver</Button>
       </div>
@@ -163,13 +240,12 @@ const closeModal=()=>{
               }}
               className="close"
             >
-              {/* <Icon name="cross-sm"></Icon> */}
             </a>
             <h2>Hola
 
             </h2>
           </ModalBody>
-        </Modal>
+        </Modal> */}
 
         
     </div>

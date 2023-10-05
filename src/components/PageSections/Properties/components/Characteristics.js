@@ -3,10 +3,10 @@ import { iconsList } from '../../../Icons';
 
 const Characteristics = ({ property }) => {
   const {
-    title,
-    description,
-    company,
-    price,
+    // title,
+    // description,
+    // company,
+    // price,
     surface_m2,
     bedrooms,
     bathrooms,
