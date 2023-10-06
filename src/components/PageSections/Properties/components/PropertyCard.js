@@ -1,4 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState , Fragment} from 'react';
+import { Dialog, Transition } from '@headlessui/react'
+import ModalDetailProperty from './ModalDetailProperty';
+// import GalleryCarousel from '../../../GalleryCarousel/GalleryCarousel';
+import Modal from '../../../Modal/Modal';
 import { Link } from 'react-router-dom';
 import {
   truncateString,
@@ -10,8 +14,10 @@ import {
 import { company } from '../../../../constants/consts/company';
 import { iconsList } from '../../../Icons';
 import { is } from '@babel/types';
+// import {Button, Modal, ModalBody} from 'reactstrap';
 
 const PropertyCard = ({ data, isList, property,valueUf }) => {
+  const [modalOpen, setModalOpen]= useState(false);
   const { id, title, image, address, commune, city, price, types, surface_m2 , bedrooms, bathrooms, covered_parkings_lots} = data;
   const {
     RiPencilRulerLine,
@@ -22,6 +28,27 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
     BsCheckCircle,
     BiMap
   } = iconsList;
+
+  console.log([data])
+
+  const renderDetailProp = () => (
+    <ModalDetailProperty
+      property={data}
+    />
+  );
+
+
+const openModal=()=>{
+  setModalOpen(true)
+  // const selected = [data].find((item) => item.id === id);
+  // setSelectedItem(selected);
+}
+
+console.log(modalOpen)
+
+const closeModal=()=>{
+  setModalOpen(false)
+}
 
   const _renderItem = (name,code,price) => {
     let ufValue = price;
@@ -40,7 +67,7 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
       <div className= {`${isList ? 'grid grid-cols-1' : ""}flex justify-between`}>
         <h1 className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-primary">
           <span className="mr-1">UF: </span>{' '}
-          {parseToDecimal(ufValue)} 
+          {parseToDecimal(ufValue)}
         </h1>
         <p className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-black">
           <span className="mr-1">CLP: </span>{' '}
@@ -67,7 +94,7 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
         src={`https://aulen.partnersadvisers.info/properties/secure-imgs/Imagenes//${id}//1.jpg`}
         alt={`top-img-${title}`}
         width="full"
-        
+
       />
 
       <div className="p-3">
@@ -98,7 +125,7 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
           </div>
           <div className="table-row-group ">
             <div className="table-row ">
-              <div className="table-cell px-5 "><RiPencilRulerLine fill='#E85512'/>{bedrooms ?? 0}</div>  
+              <div className="table-cell px-5 "><RiPencilRulerLine fill='#E85512'/>{bedrooms ?? 0}</div>
               <div className="table-cell px-5"><FaBed fill='#E85512' /><span>{bedrooms ?? 0}</span></div>
               <div className="table-cell px-5"><FaBath  fill='#E85512'/>{bathrooms ?? 0}</div>
               <div className="table-cell px-5"><GiHomeGarage fill='#E85512' />{covered_parkings_lots ?? 0}</div>
@@ -107,12 +134,37 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
         </div>
       </div>
       {_renderItem(data?.currency?.name, data?.currency?.isoCode, data.price)}
+      <div className='flex justify-end'>
+      {/* <Link
+          to={`/propiedades/${id}?statusId=${company.statusId}&companyId=${company.companyId}`}
+          onClick={openModal}
+          className="inline-flex items-center px-6 py-2 text-sm m-2 font-medium text-center text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300"
+        >VER</Link> */}
 
-        {/* <Link
+      <button
+          type="button"
+          onClick={()=> setModalOpen(true)}
+          className="inline-flex items-center px-6 py-2 text-sm m-2 font-medium text-center text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300"
+        >
+         Ver detalle
+        </button>
+
+        <Modal
+            renderTrigger={() => null}
+            isOpenProp={modalOpen}
+            renderContent={renderDetailProp}
+            contentExtraClass="max-w-6xl"
+            modalTitle={`Detalle de propiedad`}
+            modalSubtitle={`Código de la propiedad ${id}`}
+            onCloseModal={() => {
+              setModalOpen(false);
+            }}
+          />
+      {/* <Link
           // to={`/propiedades/${id}?statusId=${company.statusId}&companyId=${company.companyId}`}
-          to={`https://unnepropiedades.cl/`}
+          // to={`https://unnepropiedades.cl/`}
           target="_blank"
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300"
+          className="inline-flex items-center px-6 py-2 text-sm m-2 font-medium text-center text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300"
         >
           Ver Más
           <svg
@@ -129,6 +181,8 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
             ></path>
           </svg>
         </Link> */}
+      </div>
+
     </div>
   );
 };

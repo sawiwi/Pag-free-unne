@@ -42,10 +42,10 @@ export const navigationRoutes = [
   //   element: <Property />,
   // },
   // {
-  //   id: 5,
+  //   id: 4,
   //   name: 'Propiedad detalle',
   //   path: '/propiedades/:id',
-  //   element: <Property />,
+  //   element: <Modal />,
   // },
   // {
   //   id: 5,

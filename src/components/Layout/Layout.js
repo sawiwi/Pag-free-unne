@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import CarouselSection from '../PageSections/Home/components/CarouselSection';
 import Properties from '../../pages/Properties/Properties';
+// import Property from '../../pages/Properties/Property';
 import About from '../../pages/About';
 import Head from '../../components/Head/Head';
 
@@ -17,16 +18,13 @@ const Layout = () => {
 
       {/* HEADER PAGE */}
       <Header />
-
       {/* MAIN CONTENT */}
       <CarouselSection/> 
       <Properties/>
+      {/* <Property/> */}
       <About/>
-    
-
       {/* FOOTER PAGE */}
-      <Footer />
-      
+      <Footer />    
     </div>
   );
 };
