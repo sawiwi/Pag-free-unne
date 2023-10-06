@@ -10,6 +10,7 @@ const Modal = ({
   contentPaddingClass = 'py-4 px-6 md:py-5 text-slate-800 bg-white',
   triggerText = 'Open Modal',
   modalTitle = 'Modal title',
+  modalSubtitle = "Modal subtitle",
   isOpenProp,
   onCloseModal,
 }) => {
@@ -88,6 +89,14 @@ const Modal = ({
                       className="text-base font-semibold lg:text-xl mx-10 text-slate-800"
                     >
                       {modalTitle}
+                    </Dialog.Title>
+                  )}
+                    {modalSubtitle && (
+                    <Dialog.Title
+                      as="h5"
+                      className="text-base font-light lg:text-base mx-10 text-slate-400"
+                    >
+                      {modalSubtitle}
                     </Dialog.Title>
                   )}
                 </div>

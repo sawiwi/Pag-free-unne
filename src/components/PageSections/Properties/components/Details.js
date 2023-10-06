@@ -11,7 +11,7 @@ import { iconsList } from '../../../Icons';
 
 const Details = ({ property }) => {
   const [ufCurrentValue, setUfCurrentValue] = useState(0);
-  const { company, price, surface_m2, bedrooms, bathrooms } = property;
+  const { company, price,types, operation } = property;
   const { RiPencilRulerLine, FaBed, FaBath } = iconsList;
 
   const getExchangeRateUF = async () => {
@@ -31,7 +31,7 @@ const Details = ({ property }) => {
 
   return (
     <div className="border rounded-sm p-4 xl:p-8">
-      <h3 className="border-b pb-1 text-gray-800">Empresa {company}</h3>
+      <h3 className="border-b pb-1 text-gray-800 text-xl">Empresa {company}</h3>
 
       <p className="text-sm text-gray-400 my-2">
         Publicado por:{' '}
@@ -69,27 +69,27 @@ const Details = ({ property }) => {
           )}
       </div>
 
-      <div className="my-5 text-sm text-gray-500">
-        <div className="flex items-center my-1">
-          <span className="text-gray-400 mr-1">
-            <RiPencilRulerLine />
-          </span>
-          {surface_m2 ?? 0}m<sup>2</sup> útiles
-        </div>
+      <div className="my-5 text-sm text-gray-400">
+        <p className="flex items-center my-1 text-sm ">
+        Tipo de inmueble:
+          <span className="text-gray-800 mr-1 text-base font-normal pl-1">
+           {types ?? ""}
+          </span> 
+        </p>
 
-        <div className="flex items-center my-1">
-          <span className="text-gray-400 mr-1">
-            <FaBed />
-          </span>
-          {bedrooms ?? 0} dorms.
-        </div>
+        <p className="flex items-center my-1 text-sm ">
+           Tipo de operacion :
+          <span className="text-gray-800 mr-1 text-base font-normal pl-1">
+           {operation ?? ""}
+          </span> 
+        </p>
 
-        <div className="flex items-center my-1">
+        {/* <div className="flex items-center my-1">
           <span className="text-gray-400 mr-1">
             <FaBath />
           </span>
           {bathrooms ?? 0} baños
-        </div>
+        </div> */}
       </div>
     </div>
   );

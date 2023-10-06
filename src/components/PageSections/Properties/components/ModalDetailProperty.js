@@ -24,15 +24,16 @@ const ModalDetailProperty = ({property}) => {
       }, [property]);
 
     return(
-        <Section>
-                 {loadingOnStart && <Spinner />}
-        <Dialog.Panel className="w-full max-w-6xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title
+        
+                 
+        <Dialog.Panel className="w-full max-w-6xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle transition-all">
+                  {loadingOnStart && <Spinner />}
+                  {/* <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Payment successful
-                  </Dialog.Title>
+                    
+                  </Dialog.Title> */}
                   <div className="mt-2">
                         <GalleryCarousel items={property} />
                         <Characteristics property={property} />
@@ -42,7 +43,7 @@ const ModalDetailProperty = ({property}) => {
                   </div>
 
                 </Dialog.Panel>
-        </Section>
+      
    
     )
 }

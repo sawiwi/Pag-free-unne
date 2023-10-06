@@ -41,12 +41,12 @@ export const navigationRoutes = [
   //   path: '/contacto',
   //   element: <Property />,
   // },
-  {
-    id: 4,
-    name: 'Propiedad detalle',
-    path: '/propiedades/:id',
-    element: <Modal />,
-  },
+  // {
+  //   id: 4,
+  //   name: 'Propiedad detalle',
+  //   path: '/propiedades/:id',
+  //   element: <Modal />,
+  // },
   // {
   //   id: 5,
   //   name: 'Propiedades en mapa',
