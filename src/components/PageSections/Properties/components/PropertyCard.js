@@ -26,7 +26,8 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
     BsFillCalendarCheckFill,
     GiHomeGarage,
     BsCheckCircle,
-    BiMap
+    BiMap, 
+    TbArrowBigRightFilled
   } = iconsList;
 
   console.log([data])
@@ -98,7 +99,7 @@ const closeModal=()=>{
       />
 
       <div className="p-3">
-        <div className={`${isList ? 'grid grid-cols-2  xl:w-[50vw]': ""} flex flex-row justify-between`}>
+        <div className={`${isList ? 'grid grid-cols-1  w-full': ""} flex flex-row justify-between`}>
           <small className="mb-3 font-normal text-sm text-gray-400 flex items-start justify-start">
             <BiMap className="text-xl mr-1" />
             {truncateString(
@@ -114,6 +115,7 @@ const closeModal=()=>{
           {truncateString(title ?? 'Titulo de propiedad no registrado', 70)}
         </h5>
         <div className='border border-bottom  mb-4'></div>
+        <div className={`${isList ? 'grid grid-cols-1  w-full': ""} flex flex-row justify-between`}>
         <div className="table w-full">
           <div className="table-header-group">
             <div className="table-row ">
@@ -132,23 +134,23 @@ const closeModal=()=>{
             </div>
           </div>
         </div>
+        </div>
+   
       </div>
-      {_renderItem(data?.currency?.name, data?.currency?.isoCode, data.price)}
-      <div className='flex justify-end'>
-      {/* <Link
-          to={`/propiedades/${id}?statusId=${company.statusId}&companyId=${company.companyId}`}
-          onClick={openModal}
-          className="inline-flex items-center px-6 py-2 text-sm m-2 font-medium text-center text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300"
-        >VER</Link> */}
-
-      <button
+      <div>
+      <div className={`${isList ? 'grid grid-cols-2  w-full xl:w-[30vw]': ""} flex flex-row justify-between`}>
+          {_renderItem(data?.currency?.name, data?.currency?.isoCode, data.price)}
+          <button
           type="button"
           onClick={()=> setModalOpen(true)}
-          className="inline-flex items-center px-6 py-2 text-sm m-2 font-medium text-center text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300"
+          className="inline-flex items-center px-6 py-2  m-2 text-center xl:w-48 xl:h-12 xl:px-8 text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300"
         >
-         Ver detalle
+         <span className='text-sm  xl:text-lg m-1 inline-flex '>Ver detalle 
+         <TbArrowBigRightFilled className='mt-[0.3rem] ml-1 hover:translate-x-3 transition duration-500'/>
+         </span>  
         </button>
-
+      </div>
+      
         <Modal
             renderTrigger={() => null}
             isOpenProp={modalOpen}
