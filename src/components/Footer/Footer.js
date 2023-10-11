@@ -8,12 +8,10 @@ const Footer = () => (
     <div className="flex flex-wrap justify-center mx-4 lg:mx-0">
       <div className="pl-2 w-full flex justify-center sm:justify-start items-center sm:items-start flex-col sm:w-1/2 lg:w-4/12">
         <div className="w-5/6">
-          <Button
-            href="/"
-            className="w-96 py-2 px-3 text-xl text-center my-4 bg-primary hover:bg-primary-opacity hover:shadow-md"
+          <h2 className="w-86 py-1 text-2xl text-start my-2 text-primary uppercase"
           >
             Sobre Unne
-          </Button>
+          </h2>
           <div className="h-56">
             <p className="text-md text-gray-800 mt-5">
               <span className="font-bold text-gray-900">Dirección:</span>{' '}
@@ -37,12 +35,11 @@ const Footer = () => (
 
       <div className="pl-2 w-full flex justify-center sm:justify-start items-center sm:items-start flex-col sm:w-1/2 lg:w-4/12">
         <div className="w-5/6">
-          <Button
-            href="/"
-            className="w-96 py-2 px-3 text-xl text-center my-4 bg-primary hover:bg-primary-opacity hover:shadow-md"
+          <h2
+            className="w-86 py-1 text-2xl text-start my-2 text-primary uppercase"
           >
             SÍGUENOS EN:
-          </Button>
+          </h2>
           <div className="h-32">
             <div className="d-flex flex-col text-md text-gray-800 mt-5">
               <div className="flex justify-start items-center my-3">
@@ -112,12 +109,12 @@ const Footer = () => (
 
       <div className="pl-2 w-full flex justify-center sm:justify-start items-center sm:items-start flex-col sm:w-1/2 lg:w-4/12">
         <div className="w-5/6">
-          <Button
-            href="/"
-            className="w-96 py-2 px-3 text-xl text-center my-4 bg-primary hover:bg-primary-opacity hover:shadow-md"
+          <h2
+            
+            className="w-86 py-1 text-2xl text-start my-2 text-primary uppercase"
           >
             Menú
-          </Button>
+          </h2>
           <div className="">
             <div className='mt-5'>
               {navigationData.map((item)=>(
