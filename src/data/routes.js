@@ -1,7 +1,7 @@
 import Home from '../pages/Home';
 import About from '../pages/About';
 import Properties from '../pages/Properties/Properties';
-import Property from '../pages/Properties/Property';
+// import Property from '../pages/Properties/Property';
 // import PropertiesInMap from '../pages/PropertiesInMap';
 
 // import { useLocation } from 'react-router-dom';
