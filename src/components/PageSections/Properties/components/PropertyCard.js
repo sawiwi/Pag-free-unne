@@ -30,7 +30,7 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
     TbArrowBigRightFilled
   } = iconsList;
 
-  console.log([data])
+  // console.log([data])
 
   const renderDetailProp = () => (
     <ModalDetailProperty
@@ -39,17 +39,17 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
   );
 
 
-const openModal=()=>{
-  setModalOpen(true)
-  // const selected = [data].find((item) => item.id === id);
-  // setSelectedItem(selected);
-}
+// const openModal=()=>{
+//   setModalOpen(true)
+//   // const selected = [data].find((item) => item.id === id);
+//   // setSelectedItem(selected);
+// }
 
-console.log(modalOpen)
+// console.log(modalOpen)
 
-const closeModal=()=>{
-  setModalOpen(false)
-}
+// const closeModal=()=>{
+//   setModalOpen(false)
+// }
 
   const _renderItem = (name,code,price) => {
     let ufValue = price;
