@@ -39,18 +39,6 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
   );
 
 
-// const openModal=()=>{
-//   setModalOpen(true)
-//   // const selected = [data].find((item) => item.id === id);
-//   // setSelectedItem(selected);
-// }
-
-// console.log(modalOpen)
-
-// const closeModal=()=>{
-//   setModalOpen(false)
-// }
-
   const _renderItem = (name,code,price) => {
     let ufValue = price;
     let clpValue = price;
@@ -99,7 +87,7 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
       />
 
       <div className="p-3">
-        <div className={`${isList ? 'grid grid-cols-1  w-full': ""} flex flex-row justify-between`}>
+        <div className={`${isList ? 'grid grid-cols-1 w-full  md:w-[20vw] lg:w-[32vw] xl:w-[30vw]': ""} flex flex-row justify-between`}>
           <small className="mb-3 font-normal text-sm text-gray-400 flex items-start justify-start">
             <BiMap className="text-xl mr-1" />
             {truncateString(
@@ -115,37 +103,40 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
           {truncateString(title ?? 'Titulo de propiedad no registrado', 70)}
         </h5>
         <div className='border border-bottom  mb-4'></div>
-        <div className={`${isList ? 'grid grid-cols-1  w-full': ""} flex flex-row justify-between`}>
-        <div className="table w-full">
-          <div className="table-header-group">
-            <div className="table-row ">
-              <div className="table-cell text-sm px-3">m<sup>2</sup> útiles</div>
-              <div className="table-cell text-sm px-3">Dormitorios</div>
-              <div className="table-cell text-sm px-3">Habitaciones</div>
-              <div className="table-cell text-sm px-3">Estacionamientos</div>
+        <div className={`${isList ? 'grid grid-cols-1  w-full': ""} block md:w-full xl:flex xl:flex-row xl:justify-between`}>
+          <div className="table w-full ">
+            <div className="table-header-group">
+              <div className="table-row">
+                <div className="table-cell text-sm px-3">m<sup>2</sup></div>
+                <div className="table-cell text-sm px-3">Dormitorios</div>
+                <div className="table-cell text-sm px-3">Baños</div>
+                <div className="table-cell text-sm px-3 ">Garages</div>
+              </div>
+            </div>
+            <div className="table-row-group ">
+              <div className="table-row ">
+                <div className="table-cell px-5 "><RiPencilRulerLine fill='#E85512'/>{bedrooms ?? 0}</div>
+                <div className="table-cell px-5"><FaBed fill='#E85512' /><span>{bedrooms ?? 0}</span></div>
+                <div className="table-cell px-5"><FaBath  fill='#E85512'/>{bathrooms ?? 0}</div>
+                <div className="table-cell px-5"><GiHomeGarage fill='#E85512' />{covered_parkings_lots ?? 0}</div>
+              </div>
             </div>
           </div>
-          <div className="table-row-group ">
-            <div className="table-row ">
-              <div className="table-cell px-5 "><RiPencilRulerLine fill='#E85512'/>{bedrooms ?? 0}</div>
-              <div className="table-cell px-5"><FaBed fill='#E85512' /><span>{bedrooms ?? 0}</span></div>
-              <div className="table-cell px-5"><FaBath  fill='#E85512'/>{bathrooms ?? 0}</div>
-              <div className="table-cell px-5"><GiHomeGarage fill='#E85512' />{covered_parkings_lots ?? 0}</div>
-            </div>
-          </div>
-        </div>
         </div>
    
       </div>
       <div>
-      <div className={`${isList ? 'grid grid-cols-2  w-full xl:w-[30vw]': ""} flex flex-row justify-between`}>
+      <div className={`${isList ? 'grid grid-cols-1 w-full  sm:block  md:block lg:w-[30vw] xl:w-[30vw] ': ""} grid grid-cols-span-1 text-center md:grid `}>
           {_renderItem(data?.currency?.name, data?.currency?.isoCode, data.price)}
+
+      </div>
+      <div className={`${isList ? 'grid grid-cols-1 w-full sm:block  md:block lg:w-[30vw] xl:w-[30vw]': ""} grid grid-cols-span-1  md:grid `}>
           <button
           type="button"
           onClick={()=> setModalOpen(true)}
-          className="inline-flex items-center px-6 py-2  m-2 text-center xl:w-48 xl:h-12 xl:px-8 text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300"
+          className="inline-flex items-center px-6 py-2 w-52 m-2 text-center  xl:w-48 xl:h-12 xl:px-8 text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300"
         >
-         <span className='text-sm  xl:text-lg m-1 inline-flex '>Ver detalle 
+         <span className='text-lg items-center xl:text-lg m-1 inline-flex '>Ver detalle 
          <TbArrowBigRightFilled className='mt-[0.3rem] ml-1 hover:translate-x-3 transition duration-500'/>
          </span>  
         </button>
@@ -162,27 +153,7 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
               setModalOpen(false);
             }}
           />
-      {/* <Link
-          // to={`/propiedades/${id}?statusId=${company.statusId}&companyId=${company.companyId}`}
-          // to={`https://unnepropiedades.cl/`}
-          target="_blank"
-          className="inline-flex items-center px-6 py-2 text-sm m-2 font-medium text-center text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300"
-        >
-          Ver Más
-          <svg
-            aria-hidden="true"
-            className="w-4 h-4 ml-2 -mr-1"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-        </Link> */}
+
       </div>
 
     </div>
