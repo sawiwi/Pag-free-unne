@@ -80,7 +80,7 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
             ? 'h-[299px] w-[100%] md:w-[400px]  xl:w-[400px] object-cover rounded-t-xl xl:rounded-none'
             : 'rounded-t-xl'
         }  object-cover h-[299px] w-full`}
-        src={`https://aulen.partnersadvisers.info/properties/secure-imgs/Imagenes//${id}//1.jpg`}
+        src={`https://accion.panal.house//Imagenes//${id}//1.jpg`}
         alt={`top-img-${title}`}
         width="full"
 
