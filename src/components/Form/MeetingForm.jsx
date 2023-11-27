@@ -241,12 +241,12 @@ const MeetingForm = ({ title, subtitle, }) => {
         <div className="text-center bg-primary rounded-full  font-semibold mb-2">
           <h2 className="text-3xl font-semibold py-2 text-white">{title}</h2>
         </div>
-        <div className="text-start py-1 flex items-center">
+        {/* <div className="text-start py-1 flex items-center">
           <MdPhoneIphone className='w-[30px] h-[30px] border border-2 rounded-full p-1 mx-1'/><span className='font-normal '><b>Teléfono: </b> +56 9 321 421 76 </span>
         </div>
         <div className="text-start py-1 flex">
           <MdEmail className='w-[30px] h-[30px] border border-2 rounded-full p-1 mx-1'/><span className='font-normal '><b>Correo: </b> nombre@unne.cl </span>
-        </div>
+        </div> */}
 
       <form name="FormsData" onSubmit={onFormSubmit} className="py-6 px-4">
         <span className='text-md font-normal text-gray-500'>{subtitle}</span>
