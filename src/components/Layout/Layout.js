@@ -6,6 +6,7 @@ import Properties from '../../pages/Properties/Properties';
 // import Property from '../../pages/Properties/Property';
 import About from '../../pages/About';
 import Head from '../../components/Head/Head';
+import ContactWsp from '../ButtonContact/Fab';
 
 const Layout = () => {
   return (
@@ -22,9 +23,10 @@ const Layout = () => {
       <CarouselSection/> 
       <Properties/>
       {/* <Property/> */}
-      <About/>
+      <About/>  
       {/* FOOTER PAGE */}
-      <Footer />    
+      <Footer />   
+      <ContactWsp/> 
     </div>
   );
 };
