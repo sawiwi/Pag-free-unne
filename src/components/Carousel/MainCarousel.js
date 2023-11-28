@@ -4,6 +4,8 @@ import 'react-awesome-slider/dist/styles.css';
 import '../../assets/styles/components/Carousel/MainCarousel.css';
 import { Fade } from 'react-awesome-reveal';
 
+import { Link } from 'react-scroll';
+
 const MainCarousel = ({ data }) => {
   return (
     <AwesomeSlider
@@ -34,7 +36,7 @@ const MainCarousel = ({ data }) => {
                         {slide.title}
                       </h2>
                       <div className='mx-4 xl:mx-56'>
-                        <a href='#AboutSectionScroll'  type='button' className='inline-flex items-center drop-shadow-lg p-10 py-2 w-52 m-2 text-center  xl:w-52 xl:h-12 text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300 text-lg'>Más sobre mí</a>
+                      <Link href='#AboutSectionScroll' smooth="true" duration={700}  offset={-130} className='inline-flex items-center drop-shadow-lg p-10 py-2 w-52 m-2 text-center  xl:w-52 xl:h-12 text-white bg-primary rounded-lg hover:bg-primary-opacity focus:ring-4 focus:outline-none focus:ring-primary-300 text-lg'>Más sobre mí</Link>
                       </div>  
                     </div>
                   </Fade>
