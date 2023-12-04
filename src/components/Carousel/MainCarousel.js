@@ -5,9 +5,6 @@ import '../../assets/styles/components/Carousel/MainCarousel.css';
 import { Fade } from 'react-awesome-reveal';
 import { Link } from 'react-scroll';
 
-
-import { Link } from 'react-scroll';
-
 const MainCarousel = ({ data }) => {
   return (
     <AwesomeSlider
