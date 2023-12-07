@@ -54,10 +54,10 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
 
     return (
       <div className= {`${isList ? 'grid grid-cols-1' : ""}flex justify-between`}>
-        <h1 className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-primary">
+        <h2 className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-primary">
           <span className="mr-1">UF: </span>{' '}
           {parseToDecimal(ufValue)}
-        </h1>
+        </h2>
         <p className="flex justify-end items-center mb-3 font-semibold text-xl bg-slate-50  border-primary-400 p-1 rounded-sm text-black">
           <span className="mr-1">CLP: </span>{' '}
           {parseToCLPCurrency(clpValue)}

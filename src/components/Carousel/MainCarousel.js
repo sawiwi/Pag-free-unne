@@ -15,7 +15,7 @@ const MainCarousel = ({ data }) => {
       className="awsBtn"
     >
       {data?.length > 0
-        ? data.map((slide) => (
+        ? data.map((slide) => ( 
             <div key={slide.id}>
               <img
                 src={slide.img}
@@ -27,7 +27,7 @@ const MainCarousel = ({ data }) => {
                 }}
               />
        
-              <div className=" absolute top-0 left-0 items-center xl:w-[700px] h-full  xl:p-2 xl:pl-4 bg-black bg-opacity-40">
+              <div className=" absolute top-0 left-0 w-full items-center xl:w-[700px] h-full  xl:p-2 xl:pl-4 bg-black bg-opacity-40">
                   <Fade delay={100} direction='left' triggerOnce='false'>
                     <div className="grid grid-cols-1 mx-auto p-10 ">
                       <img src={slide.imgMe} className='rounded-full w-36 h-36 xl:w-56 xl:h-56 object-cover my-3 mx-auto xl:my-6 xl:mx-56'></img>
