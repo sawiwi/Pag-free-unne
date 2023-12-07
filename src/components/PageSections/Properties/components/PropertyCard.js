@@ -54,7 +54,7 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
     }
     else {
       clpValue = 0;
-      ufValue = 0;
+      ufValue ;
 
     }
 
