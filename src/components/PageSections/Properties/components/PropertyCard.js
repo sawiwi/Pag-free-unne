@@ -43,14 +43,25 @@ const PropertyCard = ({ data, isList, property,valueUf }) => {
     let ufValue = price;
     let clpValue = price;
 
-    let valueIntUF = valueUf.Valor.replace(/\./g, '').replace(',', '.');
+    if(valueUf.Valor != null){
+      let valueIntUF = valueUf.Valor.replace(/\./g, '').replace(',', '.');
+      if (name === 'UF' && code === 'UF'){
+        clpValue = ufToClp(price,valueIntUF);
+      }
+      if (name === 'Peso Chileno' && code === 'CLP'){
+        ufValue = clpToUf2(price,valueIntUF);
+      }
+    }
+    else {
+      clpValue = 0;
+      ufValue = 0;
 
-    if (name === 'UF' && code === 'UF'){
-      clpValue = ufToClp(price,valueIntUF);
     }
-    if (name === 'Peso Chileno' && code === 'CLP'){
-      ufValue = clpToUf2(price,valueIntUF);
-    }
+
+
+
+
+
 
     return (
       <div className= {`${isList ? 'grid grid-cols-1' : ""}flex justify-between`}>
