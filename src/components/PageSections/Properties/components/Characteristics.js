@@ -22,7 +22,7 @@ const Characteristics = ({ property }) => {
     BsCheckCircle,
   } = iconsList;
 
-  const lineas = description.split('\n') || "Por definir";
+  const lineas = description.split('\n');
   const lineasIni = 5;
   const lineasViews= lineas ? lineas.length : lineasIni
 
