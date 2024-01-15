@@ -22,6 +22,14 @@ const Characteristics = ({ property }) => {
     BsCheckCircle,
   } = iconsList;
 
+  const lineas = description.split('\n') || "Por definir";
+  const lineasIni = 5;
+  const lineasViews= lineas ? lineas.length : lineasIni
+
+  // const lineaList = lineas.slice(0, lineasViews).map((linea, idx) => (
+  //   <p key={idx}>{linea}</p>
+  // ))
+
   return (
     <div className="flex flex-col p-5 mt-5 md:xl:mt-24 lg:xl:mt-24 xl:mt-24">
             <h1 className='text-lg'>Características</h1>
@@ -72,13 +80,17 @@ const Characteristics = ({ property }) => {
       </div>
 
       <div className="my-7">
-        <h5 className="text-lg">Descripción</h5>
-        <p className="text-gray-600 mt-2">
+        <h2 className="text-gray-600 mt-2 text-lg text-balance">
           {title ?? 'Propiedad sin titulo registrado'}
-        </p>
+        </h2>
         <br />
+        <h5 className="text-lg">Descripción</h5>
         <p className="text-gray-600">
-          {description ?? 'Propiedad sin descripción registrado'}
+          {/* {description ?? 'Propiedad sin descripción registrado'} */}
+          {lineas.slice(0, lineasViews).map((linea, idx) => (
+            <p key={idx} className="text-gray-600 mt-2">- {linea}</p>
+          ))
+          }
         </p>
       </div>
     </div>
