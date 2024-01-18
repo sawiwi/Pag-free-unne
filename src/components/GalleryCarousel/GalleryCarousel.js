@@ -8,12 +8,10 @@ import { company } from '../../constants/consts/company';
 
 const GalleryCarousel = ({property}) => {
   const [propertyId, setPropertyId]= useState("")
-  console.log(property)
 
 
   const getPropertyForId= async (id, statusId, companyId)=>{
     const data= await PropertiesServices.getProperty(id, statusId, companyId);
-    console.log(data)
 
     setPropertyId(data)
     }
@@ -23,33 +21,41 @@ const GalleryCarousel = ({property}) => {
       getPropertyForId(property.id, 1, company.companyId)
     }, [])
 
-  const getImages = () =>
-  propertyId?.images
-      ? propertyId?.images?.map((_, idx) => ({
-          original: `https://accion.panal.house//Imagenes//${
-            propertyId?.id
-          }//${idx + 1}.jpg`,
-          thumbnail: `https://accion.panal.house//Imagenes//${
-            propertyId?.id
-          }//${idx + 1}.jpg`,
-        }))
-      : [];
+  // const getImages = () =>
+  // propertyId?.images
+  //     ? propertyId?.images?.map((_, idx) => ({
+  //         original: `https://accion.panal.house//Imagenes//${
+  //           propertyId?.id
+  //         }//${idx + 1}.jpg`,
+  //         thumbnail: `https://accion.panal.house//Imagenes//${
+  //           propertyId?.id
+  //         }//${idx + 1}.jpg`,
+  //       }))
+  //     : [];
 
-  // const getImages = () => {
-  //   if (propertyId && data.image) {
-  //       return [{
-  //           original: `https://accion.panal.house//Imagenes//${data.id}//1.jpg`,
-  //           thumbnail: `https://accion.panal.house//Imagenes//${data.id}//1.jpg`,
-  //       },
-  //       {
-  //         original: `https://accion.panal.house//Imagenes//${data.id}//1.jpg`,
-  //         thumbnail: `https://accion.panal.house//Imagenes//${data.id}//1.jpg`,
-  //     },
-  //     ]
-  //   } else {
-  //       return {};
-  //   }
-  // };
+
+  const getImages = (images) =>
+      images
+        ? images?.map((_, idx) => {
+            const image = images[idx];
+            const validExtensions = ['.jpg', '.jpeg', '.png'];
+
+    
+            if (image && validExtensions.some(ext => image.toLowerCase().endsWith(ext))) {
+              return {
+                original: `${image }`,
+                thumbnail: `${image }`,
+              };
+            }
+    
+            // Devolver un objeto en caso si la extensión no es válida
+            return {
+              original:`https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg`,
+              thumbnail:`https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg`
+            }
+       ;
+          })
+        : [];
 
   return (
     <ImageGallery
@@ -63,7 +69,7 @@ const GalleryCarousel = ({property}) => {
       showBullets={false}
       showThumbnails={true}
       thumbnailPosition="bottom"
-      items={getImages()}
+      items={getImages(propertyId?.images)}
     />
   );
 };
